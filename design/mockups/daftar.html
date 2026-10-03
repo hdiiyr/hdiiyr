@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Daftar — mockups</title>
+<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="daftar.css">
+</head>
+<body>
+
+<!-- Icon sprite: 24-unit, stroke icons with round caps -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 32 32">
+      <rect width="32" height="32" rx="9" fill="#1f5d4c"/>
+      <rect x="8" y="7" width="15.5" height="18" rx="3" fill="#efece4"/>
+      <path d="M11.5 12h8.5M11.5 16h8.5M11.5 20h4.5" stroke="#1f5d4c" stroke-opacity=".6" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <circle cx="22.5" cy="22.5" r="5.2" fill="#e2a23b" stroke="#1f5d4c" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"/></symbol>
+    <symbol id="i-invoice" viewBox="0 0 24 24"><path d="M14 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3.5V8h4.5"/><path d="M9 12.5h6M9 16h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.5"/><path d="M3 19.5c.6-3.3 3.2-5.3 6.5-5.3s5.9 2 6.5 5.3"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.6c1.8.8 3 2.5 3.3 4.9"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5-2 1.5z"/><path d="M9 8.5h6M9 12h6M9 15.5h3"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V4M8 8l4-4 4 4"/><path d="M5.5 12.5v6A1.5 1.5 0 0 0 7 20h10a1.5 1.5 0 0 0 1.5-1.5v-6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5"/><circle cx="12" cy="16" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2L9 5h6l1.5 2h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><circle cx="12" cy="12.5" r="3.3"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M5 9.5h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8.5 3.5v3M12.5 3.5v3"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 13.5 5.8 8.4A2 2 0 0 1 7.7 7h8.6a2 2 0 0 1 1.9 1.4l1.8 5.1V17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 13.5h16M7.5 15.75h1M15.5 15.75h1"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3.5 20 7.5v9L12 20.5 4 16.5v-9z"/><path d="M4 7.5l8 4 8-4M12 11.5v9"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19.5h14"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M20 4 10.5 13.5"/><path d="M20 4l-6 16-3.5-6.5L4 10z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.2"/><rect x="14" y="4" width="6" height="6" rx="1.2"/><rect x="4" y="14" width="6" height="6" rx="1.2"/><path d="M14 14h2.5v2.5M20 14v.01M14 20h.01M17 20h3v-3"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 16.5 9.5 11l3.5 3.5L20 7.5"/><path d="M15 7.5h5v5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M5 20c.8-3.6 3.6-5.7 7-5.7s6.2 2.1 7 5.7"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6.5h16M7 12h10M10 17.5h4"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path d="M17 7 7 17M7 9.5V17h7.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M9.5 7H17v7.5"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3.5V8h4.5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></symbol>
+    <symbol id="i-tax" viewBox="0 0 24 24"><path d="M4 9.5 12 5l8 4.5"/><path d="M6 10.5v6.5M10 10.5v6.5M14 10.5v6.5M18 10.5v6.5"/><path d="M4 19.5h16"/></symbol>
+    <symbol id="i-del" viewBox="0 0 24 24"><path d="M9 5.5h10A1.5 1.5 0 0 1 20.5 7v10a1.5 1.5 0 0 1-1.5 1.5H9L3.5 12z"/><path d="m11.5 9.5 5 5M16.5 9.5l-5 5"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4.5 11V9.5A2.5 2.5 0 0 1 7 7h12.5"/><path d="m16.5 4 3 3-3 3"/><path d="M19.5 13v1.5A2.5 2.5 0 0 1 17 17H4.5"/><path d="m7.5 20-3-3 3-3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  </defs>
+</svg>
+
+<!-- =====================================================================
+     COVER — dashboard + quick-expense phone
+     ===================================================================== -->
+<section class="board" id="cover" data-size="cover">
+
+  <div class="window cv-win">
+    <div class="chrome"><b></b><b></b><b></b><div class="url">daftar.app/dashboard</div></div>
+    <div class="app">
+      <aside class="side">
+        <div class="logo"><svg class="mark"><use href="#mark"/></svg><span>دفتر</span></div>
+        <nav class="nav">
+          <a class="on"><svg class="ic"><use href="#i-grid"/></svg>داشبورد</a>
+          <a><svg class="ic"><use href="#i-invoice"/></svg>فاکتورها</a>
+          <a><svg class="ic"><use href="#i-link"/></svg>لینک&zwnj;های پرداخت</a>
+          <a><svg class="ic"><use href="#i-users"/></svg>مشتری&zwnj;ها</a>
+          <a><svg class="ic"><use href="#i-receipt"/></svg>هزینه&zwnj;ها</a>
+          <a><svg class="ic"><use href="#i-chart"/></svg>گزارش&zwnj;ها</a>
+          <a><svg class="ic"><use href="#i-settings"/></svg>تنظیمات</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h1>سلام، سارا</h1>
+            <p>یکشنبه، 12 مهر 1405</p>
+          </div>
+          <div class="row gap10">
+            <div class="search"><svg class="ic s18"><use href="#i-search"/></svg>جستجوی فاکتور یا مشتری<span class="kbd">⌘K</span></div>
+            <span class="icon-btn"><svg class="ic"><use href="#i-bell"/></svg><span class="dot"></span></span>
+            <span class="btn pri"><svg class="ic s18"><use href="#i-plus"/></svg>فاکتور جدید</span>
+          </div>
+        </header>
+
+        <div class="kpis">
+          <div class="card kpi hero">
+            <svg class="rings" viewBox="0 0 190 190"><g fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"><circle cx="95" cy="95" r="34"/><circle cx="95" cy="95" r="56"/><circle cx="95" cy="95" r="76"/><circle cx="95" cy="95" r="94"/></g></svg>
+            <div class="lbl"><span class="ic-box"><svg class="ic s16"><use href="#i-receipt"/></svg></span>موجودی کل</div>
+            <div class="val">84,320,000<small>تومان</small></div>
+            <div class="sub">۳ حساب متصل · به&zwnj;روز شده ۱۰ دقیقه پیش</div>
+          </div>
+          <div class="card kpi">
+            <div class="lbl"><span class="ic-box"><svg class="ic s16"><use href="#i-trend"/></svg></span>درآمد مهر</div>
+            <div class="val">21,700,000<small>تومان</small></div>
+            <div class="sub"><span class="chip up"><svg class="ic s14"><use href="#i-trend"/></svg>18%</span>نسبت به مدت مشابه شهریور</div>
+          </div>
+          <div class="card kpi">
+            <div class="lbl"><span class="ic-box"><svg class="ic s16"><use href="#i-clock"/></svg></span>در انتظار پرداخت</div>
+            <div class="val">37,000,000<small>تومان</small></div>
+            <div class="sub"><span class="stack"><i style="width:66%;background:var(--saffron)"></i><i style="width:34%;background:var(--red)"></i></span>4 فاکتور · <span style="color:var(--red-d);font-weight:600">2 معوق</span></div>
+          </div>
+        </div>
+
+        <div class="mid">
+          <div class="card chart-card">
+            <div class="card-h">
+              <div class="row gap10"><h3>درآمد ماهانه</h3><span class="muted" style="font-size:12.5px">میلیون تومان · 1405</span></div>
+              <div class="seg"><span class="on">شش ماه</span><span>یک سال</span></div>
+            </div>
+            <div class="chart-host" id="cvChart">
+              <div class="tip" id="cvTip">تیر 1405<b>36,400,000 تومان</b></div>
+            </div>
+          </div>
+          <div class="card due-card">
+            <div class="card-h" style="margin-bottom:4px"><h3>سررسیدهای پیش رو</h3><span class="link-more">همه<svg class="ic s14"><use href="#i-chev-l"/></svg></span></div>
+            <div class="due-row"><span class="av s">آ</span><div><div class="nm">نشر آبان</div><div class="sb">20 مهر · 8 روز مانده</div></div><span class="amt">17,600,000</span></div>
+            <div class="due-row"><span class="av k">گ</span><div><div class="nm">گالری آینه</div><div class="sb">24 مهر · 12 روز مانده</div></div><span class="amt">6,800,000</span></div>
+            <div class="due-row late"><span class="av r">ب</span><div><div class="nm">کافه بلوط</div><div class="sb">5 روز از سررسید گذشته</div></div><span class="amt">7,200,000</span></div>
+          </div>
+        </div>
+
+        <div class="card inv-card">
+          <div class="card-h"><h3>فاکتورهای اخیر</h3><span class="link-more">مشاهدهٔ همه<svg class="ic s14"><use href="#i-chev-l"/></svg></span></div>
+          <div class="tbl">
+            <div class="tr th"><div class="td c-client">مشتری</div><div class="td c-no">شماره</div><div class="td c-date">تاریخ صدور</div><div class="td c-amt">مبلغ (تومان)</div><div class="td c-st">وضعیت</div></div>
+            <div class="tr"><div class="td c-client"><span class="av s">آ</span>نشر آبان</div><div class="td c-no">فاکتور 042</div><div class="td c-date">10 مهر 1405</div><div class="td c-amt amt">17,600,000</div><div class="td c-st"><span class="pill pend">در انتظار</span></div></div>
+            <div class="tr"><div class="td c-client"><span class="av g">ن</span>استودیو نقش</div><div class="td c-no">فاکتور 041</div><div class="td c-date">6 مهر 1405</div><div class="td c-amt amt">9,200,000</div><div class="td c-st"><span class="pill paid">پرداخت&zwnj;شده</span></div></div>
+            <div class="tr"><div class="td c-client"><span class="av b">س</span>آژانس سپیدار</div><div class="td c-no">فاکتور 040</div><div class="td c-date">2 مهر 1405</div><div class="td c-amt amt">12,500,000</div><div class="td c-st"><span class="pill paid">پرداخت&zwnj;شده</span></div></div>
+            <div class="tr"><div class="td c-client"><span class="av r">ب</span>کافه بلوط</div><div class="td c-no">فاکتور 039</div><div class="td c-date">28 شهریور 1405</div><div class="td c-amt amt">7,200,000</div><div class="td c-st"><span class="pill late">سررسید گذشته</span></div></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="phone cv-phone">
+    <div class="island"></div>
+    <div class="screen">
+      <div class="qx">
+        <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i><i></i></span></div>
+        <div class="qx-head">
+          <span class="icon-btn"><svg class="ic s18"><use href="#i-x"/></svg></span>
+          <b>هزینهٔ جدید</b>
+          <span class="icon-btn"><svg class="ic s18"><use href="#i-camera"/></svg></span>
+        </div>
+        <div class="qx-amt">
+          <div class="lbl">مبلغ هزینه</div>
+          <div class="v">280,000<span class="caret"></span><small>تومان</small></div>
+        </div>
+        <div class="qx-chips">
+          <span class="qx-chip on"><svg class="ic s16"><use href="#i-coffee"/></svg>کافه و پذیرایی</span>
+          <span class="qx-chip"><svg class="ic s16"><use href="#i-laptop"/></svg>نرم&zwnj;افزار</span>
+          <span class="qx-chip"><svg class="ic s16"><use href="#i-car"/></svg>رفت&zwnj;وآمد</span>
+          <span class="qx-chip"><svg class="ic s16"><use href="#i-box"/></svg>تجهیزات</span>
+        </div>
+        <div class="qx-meta">
+          <svg class="receipt" viewBox="0 0 34 40"><path d="M3 2h28v34l-3.5-2.5L24 36l-3.5-2.5L17 36l-3.5-2.5L10 36l-3.5-2.5L3 36z" fill="#fff" stroke="#dfdbd1" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 9h16M9 14h11M9 19h14" stroke="#a9aea9" stroke-width="1.6" stroke-linecap="round"/><path d="M9 26h8" stroke="#1f5d4c" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <div><div class="t">رسید پیوست شد</div><div class="s">پروژهٔ کافه بلوط · 12 مهر</div></div>
+          <span class="ok"><svg class="ic s14"><use href="#i-check"/></svg></span>
+        </div>
+        <div class="keypad">
+          <span class="k">1</span><span class="k">2</span><span class="k">3</span>
+          <span class="k">4</span><span class="k">5</span><span class="k">6</span>
+          <span class="k">7</span><span class="k">8</span><span class="k">9</span>
+          <span>000</span><span class="k">0</span><span><svg class="ic s24" style="color:var(--ink-2)"><use href="#i-del"/></svg></span>
+        </div>
+        <div class="qx-cta"><svg class="ic s18"><use href="#i-check"/></svg>ثبت هزینه</div>
+      </div>
+      <div class="home-indicator" style="color:var(--ink)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     DETAIL — invoice detail, share payment link
+     ===================================================================== -->
+<section class="board" id="detail" data-size="detail">
+  <div class="phone dt-phone">
+    <div class="island"></div>
+    <div class="screen">
+      <div class="dt-top">
+        <svg class="deco" viewBox="0 0 300 300"><g fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2"><circle cx="150" cy="150" r="60"/><circle cx="150" cy="150" r="100"/><circle cx="150" cy="150" r="140"/></g></svg>
+        <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i><i></i></span></div>
+        <div class="dt-nav">
+          <span class="rb"><svg class="ic s22"><use href="#i-arrow-r"/></svg></span>
+          <b>فاکتور 042</b>
+          <span class="rb"><svg class="ic s22"><use href="#i-more"/></svg></span>
+        </div>
+        <div class="dt-client">
+          <span class="av">آ</span>
+          <div><div class="nm">نشر آبان</div><div class="sb">طراحی جلد · مجموعهٔ پاییز</div></div>
+        </div>
+        <div class="dt-amt">
+          <div class="lbl">مبلغ قابل پرداخت</div>
+          <div class="v">17,600,000<small>تومان</small></div>
+        </div>
+        <div class="dt-status"><span class="pill nodot"><svg class="ic s16"><use href="#i-clock"/></svg>در انتظار پرداخت</span>سررسید 20 مهر 1405</div>
+      </div>
+      <div class="dt-sheet">
+        <div class="dt-items">
+          <div class="r"><span>طراحی جلد (3 عنوان)</span><b>10,500,000</b></div>
+          <div class="r"><span>تصویرسازی داخلی</span><b>4,000,000</b></div>
+          <div class="r"><span>آماده&zwnj;سازی فایل چاپ</span><b>1,500,000</b></div>
+          <div class="r tax"><span>ارزش افزوده 10%</span><b>1,600,000</b></div>
+        </div>
+        <div class="dt-link">
+          <span class="li"><svg class="ic s24"><use href="#i-link"/></svg></span>
+          <div><div class="t">لینک پرداخت آماده است</div><div class="u en">daftar.app/p/042</div></div>
+          <span class="cp"><svg class="ic s22"><use href="#i-copy"/></svg></span>
+        </div>
+        <div class="dt-views"><svg class="ic s18"><use href="#i-eye"/></svg>2 بار باز شده · آخرین بار امروز 10:24</div>
+        <div class="dt-cta">
+          <span class="go"><svg class="ic s24"><use href="#i-share"/></svg>ارسال لینک پرداخت</span>
+          <span class="qr"><svg class="ic s26"><use href="#i-qr"/></svg></span>
+        </div>
+      </div>
+      <div class="home-indicator" style="color:var(--ink)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     D1 — invoice builder with live preview
+     ===================================================================== -->
+<section class="board" id="d1" data-size="cover">
+  <div class="dots"></div>
+  <div class="window b-win">
+    <div class="chrome"><b></b><b></b><b></b><div class="url">daftar.app/invoices/new</div></div>
+    <div class="b-app">
+      <div class="b-top">
+        <div class="row gap12">
+          <span class="icon-btn"><svg class="ic s18"><use href="#i-arrow-r"/></svg></span>
+          <span class="t">فاکتور جدید</span>
+          <span class="saved"><svg class="ic s14"><use href="#i-check"/></svg>پیش&zwnj;نویس ذخیره شد</span>
+        </div>
+        <div class="row gap8">
+          <span class="btn ghost"><svg class="ic s18"><use href="#i-download"/></svg>دریافت PDF</span>
+          <span class="btn pri"><svg class="ic s18" style="transform:scaleX(-1)"><use href="#i-send"/></svg>ارسال فاکتور</span>
+        </div>
+      </div>
+      <div class="b-body">
+        <div class="b-form">
+          <div class="b-sec">مشتری</div>
+          <div class="field" style="height:56px">
+            <span class="av s" style="width:32px;height:32px;font-size:14px">ب</span>
+            <div class="grow"><div style="font-weight:700;line-height:1.35">کافه بلوط</div><div style="font-size:12px;color:var(--ink-3);font-weight:500">تهران · 6 فاکتور قبلی</div></div>
+            <svg class="ic s18" style="color:var(--ink-3)"><use href="#i-chev-d"/></svg>
+          </div>
+          <div class="row gap12" style="margin-top:14px">
+            <div class="grow"><div class="field-l">تاریخ صدور</div><div class="field"><svg class="ic s18" style="color:var(--ink-3)"><use href="#i-cal"/></svg>12 مهر 1405</div></div>
+            <div class="grow"><div class="field-l">سررسید</div><div class="field"><svg class="ic s18" style="color:var(--ink-3)"><use href="#i-cal"/></svg>26 مهر 1405<span class="chip" style="margin-inline-start:auto;background:var(--paper-3);color:var(--ink-3)">14 روز</span></div></div>
+          </div>
+          <div class="b-sec" style="margin-top:18px">اقلام فاکتور<span>2 ردیف</span></div>
+          <div class="items">
+            <div class="ir ih"><span class="c1">شرح</span><span class="c2">تعداد</span><span class="c3">مبلغ واحد</span></div>
+            <div class="ir"><span class="c1">طراحی منوی پاییزه</span><span class="c2">1</span><span class="c3">6,500,000</span></div>
+            <div class="ir edit"><span class="c1">عکاسی محصول</span><span class="c2">12</span><span class="c3">350,000<i class="caret"></i></span></div>
+            <div class="add"><svg class="ic s16"><use href="#i-plus"/></svg>افزودن ردیف</div>
+          </div>
+          <div style="margin-top:12px">
+            <div class="trow"><span>مالیات بر ارزش افزوده</span><span class="chip" style="background:var(--saffron-t);color:var(--saffron-d)">10%</span><span class="toggle"></span></div>
+            <div class="trow"><div><div style="line-height:1.4">لینک پرداخت آنلاین</div><div class="s">کد QR و لینک روی فاکتور چاپ می&zwnj;شود</div></div><span class="toggle"></span></div>
+          </div>
+          <div class="b-tot" id="d1-total">
+            <div class="r"><span>جمع اقلام</span><span>10,700,000</span></div>
+            <div class="r"><span>ارزش افزوده (10%)</span><span>1,070,000</span></div>
+            <div class="r big"><span>قابل پرداخت</span><b>11,770,000<span class="cur">تومان</span></b></div>
+          </div>
+        </div>
+
+        <div class="b-prev">
+          <div class="bar">
+            <span class="live"><i></i>پیش&zwnj;نمایش زنده</span>
+            <div class="tools">
+              <span><svg class="ic s16"><use href="#i-minus"/></svg></span><span>100%</span><span><svg class="ic s16"><use href="#i-plus"/></svg></span>
+              <span class="sep"></span><span class="en">A4</span><span><svg class="ic s16"><use href="#i-print"/></svg></span>
+            </div>
+          </div>
+          <div class="paper">
+            <div class="ph">
+              <div class="who">
+                <svg width="38" height="38" viewBox="0 0 38 38"><rect width="38" height="38" rx="10" fill="#1e2622"/><circle cx="15" cy="19" r="7" fill="#e2a23b"/><path d="M21 11.5h4.5a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H21z" fill="#efece4"/></svg>
+                <div><b>سارا کاظمی</b><span>طراحی گرافیک و هویت بصری</span></div>
+              </div>
+              <div class="ttl"><b>فاکتور</b><span>شمارهٔ 043</span></div>
+            </div>
+            <div class="meta">
+              <div><div class="k">صورتحساب برای</div><b>کافه بلوط</b><div>تهران</div></div>
+              <div style="text-align:left"><div><span class="k">تاریخ صدور: </span>12 مهر 1405</div><div><span class="k">سررسید: </span>26 مهر 1405</div></div>
+            </div>
+            <div class="ptbl">
+              <div class="pr h"><span class="p1">شرح خدمات</span><span class="p2">تعداد</span><span class="p3">مبلغ (تومان)</span></div>
+              <div class="pr"><span class="p1">طراحی منوی پاییزه</span><span class="p2">1</span><span class="p3">6,500,000</span></div>
+              <div class="pr hl" id="d1-row"><span class="p1">عکاسی محصول</span><span class="p2">12</span><span class="p3">4,200,000</span></div>
+            </div>
+            <div class="ptot">
+              <div class="r"><span>جمع</span><span>10,700,000</span></div>
+              <div class="r"><span>ارزش افزوده 10%</span><span>1,070,000</span></div>
+              <div class="r big"><span>قابل پرداخت</span><span>11,770,000 تومان</span></div>
+            </div>
+            <div class="pfoot" id="d1-foot">
+              <div class="grow"><b>پرداخت آنلاین</b><div class="s">کد را اسکن کنید یا از این لینک بپردازید</div><div class="u en">daftar.app/p/043</div></div>
+              <svg class="qrbox" id="d1-qr" data-qr="43"></svg>
+            </div>
+            <div class="thanks">از همکاری شما سپاسگزارم.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" data-target="#d1-row" data-ax="0" data-dx="-15" data-side="l" style="left:40px"><span class="n">1</span>پیش&zwnj;نمایش همزمان با تایپ</div>
+  <div class="callout" data-target="#d1-total" data-ax="1" data-side="r" data-dx="5" style="left:1356px"><span class="n">2</span>محاسبهٔ خودکار مالیات</div>
+  <div class="callout" data-target="#d1-foot" data-ax="0" data-side="l" style="left:40px"><span class="n">3</span>لینک پرداخت روی فاکتور</div>
+</section>
+
+<!-- =====================================================================
+     D2 — reports a freelancer understands
+     ===================================================================== -->
+<section class="board" id="d2" data-size="cover">
+  <div class="ed-head"><div class="k"><i></i>گزارش شش&zwnj;ماههٔ نخست 1405</div><h2>عددها، به زبان خودت.</h2></div>
+  <div class="rc r-bars">
+    <div class="row between" style="align-items:flex-start">
+      <div><h3>درآمد و هزینه</h3><div class="sub">شش ماه نخست 1405 · میلیون تومان</div></div>
+      <div class="legend"><span><i style="background:var(--green)"></i>درآمد</span><span><i style="background:var(--saffron)"></i>هزینه</span></div>
+    </div>
+    <div class="net"><div class="v">137,300,000<small>تومان سود خالص</small></div><span class="chip up" style="margin-bottom:2px"><svg class="ic s14"><use href="#i-trend"/></svg>24% بیشتر از شش ماه قبل</span></div>
+    <div class="bars-host" id="d2Bars">
+      <div class="tip lft" id="d2Tip">شهریور: بهترین ماه<b>31,400,000 تومان سود</b></div>
+    </div>
+  </div>
+
+  <div class="rc r-donut">
+    <div class="row between" style="align-items:flex-start">
+      <div><h3>هزینه&zwnj;ها به تفکیک دسته</h3><div class="sub">شش ماه نخست 1405</div></div>
+      <span class="link-more">همهٔ هزینه&zwnj;ها<svg class="ic s14"><use href="#i-chev-l"/></svg></span>
+    </div>
+    <div class="donut-wrap">
+      <div class="donut"><svg id="d2Donut" width="200" height="200" viewBox="0 0 200 200"></svg><div class="c"><div><b>57.5</b><span>میلیون تومان</span></div></div></div>
+      <div class="lg">
+        <div class="r"><i style="background:var(--green)"></i>اجارهٔ فضای کار اشتراکی<span class="a">18,000,000</span><span class="p">31%</span></div>
+        <div class="r"><i style="background:var(--saffron)"></i>نرم&zwnj;افزار و اشتراک&zwnj;ها<span class="a">13,800,000</span><span class="p">24%</span></div>
+        <div class="r"><i style="background:var(--green-4)"></i>تجهیزات<span class="a">12,600,000</span><span class="p">22%</span></div>
+        <div class="r"><i style="background:#c9b99a"></i>رفت&zwnj;وآمد<span class="a">7,500,000</span><span class="p">13%</span></div>
+        <div class="r"><i style="background:#dcd6c8"></i>سایر<span class="a">5,600,000</span><span class="p">10%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rc r-late">
+    <div class="row between">
+      <div class="late-h">
+        <span class="ib"><svg class="ic s22"><use href="#i-alert"/></svg></span>
+        <div><h3>۲ فاکتور دیر شده</h3><div class="sub">جمعاً 12,600,000 تومان منتظر پرداخت است</div></div>
+      </div>
+      <span class="link-more">همه<svg class="ic s14"><use href="#i-chev-l"/></svg></span>
+    </div>
+    <div style="margin-top:14px">
+      <div class="late-row"><span class="av g">ن</span><div><div class="nm">استودیو نقش</div><div class="sb">فاکتور 038 · سررسید 31 شهریور</div></div><span class="pill late">12 روز تأخیر</span><span class="amt">5,400,000</span></div>
+      <div class="late-row"><span class="av r">ب</span><div><div class="nm">کافه بلوط</div><div class="sb">فاکتور 039 · سررسید 7 مهر</div></div><span class="pill late">5 روز تأخیر</span><span class="amt">7,200,000</span></div>
+    </div>
+    <div class="msg">
+      <div class="bubble">سلام، وقت&zwnj;تان بخیر. فاکتور 038 هنوز باز است؛ لینک پرداخت را دوباره برایتان فرستادم.</div>
+      <span class="btn pri sm"><svg class="ic s16" style="transform:scaleX(-1)"><use href="#i-send"/></svg>ارسال یادآوری</span>
+    </div>
+    <div class="auto-r"><span class="ib"><svg class="ic s18"><use href="#i-repeat"/></svg></span><div><div style="line-height:1.4">یادآوری خودکار</div><div class="s">3 روز پس از سررسید، با لینک پرداخت</div></div><span class="toggle"></span></div>
+  </div>
+
+  <div class="rc r-tax">
+    <svg class="deco" viewBox="0 0 320 320"><g fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2"><circle cx="160" cy="160" r="70"/><circle cx="160" cy="160" r="115"/><circle cx="160" cy="160" r="158"/></g></svg>
+    <div class="row between" style="position:relative">
+      <div class="lbl"><span class="ib"><svg class="ic s18"><use href="#i-tax"/></svg></span>برآورد مالیات بر درآمد 1405</div>
+      <span class="pill nodot" style="background:rgba(255,255,255,.12);color:#fff">تخمینی</span>
+    </div>
+    <div class="v" style="position:relative">14,200,000<small>تومان</small></div>
+    <div class="vs">بر پایهٔ 194,800,000 تومان درآمد شش ماه نخست</div>
+    <div class="prog" style="position:relative"><i></i></div>
+    <div class="prog-l" style="position:relative"><span>کنار گذاشته&zwnj;ای: <b>8,800,000 تومان</b> (62%)</span><span>مانده: <b>5,400,000</b></span></div>
+    <div class="foot">
+      <div>ماهی <b style="color:var(--saffron)">900,000 تومان</b> کنار بگذار<br>تا موعد اظهارنامه، 31 خرداد 1406</div>
+      <span class="btn saf"><svg class="ic s18"><use href="#i-file"/></svg>گزارش مالیاتی</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WIDE — invoices list, mobile home, clients
+     ===================================================================== -->
+<section class="board" id="wide" data-size="wide">
+  <div class="band"></div>
+
+  <!-- Window A (right): invoices list -->
+  <div class="window w-win w-a">
+    <div class="chrome"><b></b><b></b><b></b><div class="url">daftar.app/invoices</div></div>
+    <div class="app">
+      <aside class="rail">
+        <svg class="mark"><use href="#mark"/></svg>
+        <a><svg class="ic"><use href="#i-grid"/></svg></a>
+        <a class="on"><svg class="ic"><use href="#i-invoice"/></svg></a>
+        <a><svg class="ic"><use href="#i-link"/></svg></a>
+        <a><svg class="ic"><use href="#i-users"/></svg></a>
+        <a><svg class="ic"><use href="#i-receipt"/></svg></a>
+        <a><svg class="ic"><use href="#i-chart"/></svg></a>
+        <span class="av s">س</span>
+      </aside>
+      <main class="main">
+        <div class="ph-head">
+          <div><h2>فاکتورها</h2><div class="muted">43 فاکتور در 1405</div></div>
+          <div class="row gap8"><span class="icon-btn"><svg class="ic s18"><use href="#i-filter"/></svg></span><span class="btn pri"><svg class="ic s18"><use href="#i-plus"/></svg>فاکتور جدید</span></div>
+        </div>
+        <div class="tabs"><span class="on">همه<em>43</em></span><span>در انتظار<em>2</em></span><span>معوق<em>2</em></span><span>پرداخت&zwnj;شده<em>38</em></span><span>پیش&zwnj;نویس<em>1</em></span></div>
+        <div class="card tbl w-tbl" style="overflow:hidden">
+          <div class="tr th"><div class="td w-no">شماره</div><div class="td w-cl">مشتری</div><div class="td w-due">سررسید</div><div class="td w-amt">مبلغ (تومان)</div><div class="td w-st">وضعیت</div></div>
+          <div class="tr"><div class="td w-no">043</div><div class="td w-cl"><span class="av r">ب</span>کافه بلوط</div><div class="td w-due">26 مهر</div><div class="td w-amt amt">11,770,000</div><div class="td w-st"><span class="pill draft">پیش&zwnj;نویس</span></div></div>
+          <div class="tr"><div class="td w-no">042</div><div class="td w-cl"><span class="av s">آ</span>نشر آبان</div><div class="td w-due">20 مهر</div><div class="td w-amt amt">17,600,000</div><div class="td w-st"><span class="pill pend">در انتظار</span></div></div>
+          <div class="tr"><div class="td w-no">041</div><div class="td w-cl"><span class="av g">ن</span>استودیو نقش</div><div class="td w-due">13 مهر</div><div class="td w-amt amt">9,200,000</div><div class="td w-st"><span class="pill paid">پرداخت&zwnj;شده</span></div></div>
+          <div class="tr"><div class="td w-no">040</div><div class="td w-cl"><span class="av b">س</span>آژانس سپیدار</div><div class="td w-due">9 مهر</div><div class="td w-amt amt">12,500,000</div><div class="td w-st"><span class="pill paid">پرداخت&zwnj;شده</span></div></div>
+          <div class="tr"><div class="td w-no">039</div><div class="td w-cl"><span class="av r">ب</span>کافه بلوط</div><div class="td w-due">7 مهر</div><div class="td w-amt amt">7,200,000</div><div class="td w-st"><span class="pill late">معوق</span></div></div>
+          <div class="tr"><div class="td w-no">038</div><div class="td w-cl"><span class="av g">ن</span>استودیو نقش</div><div class="td w-due">31 شهریور</div><div class="td w-amt amt">5,400,000</div><div class="td w-st"><span class="pill late">معوق</span></div></div>
+          <div class="tr"><div class="td w-no">037</div><div class="td w-cl"><span class="av k">گ</span>گالری آینه</div><div class="td w-due">24 مهر</div><div class="td w-amt amt">6,800,000</div><div class="td w-st"><span class="pill pend">در انتظار</span></div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Phone (center): mobile home -->
+  <div class="phone w-phone">
+    <div class="island"></div>
+    <div class="screen">
+      <div class="mh">
+        <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i><i></i></span></div>
+        <div class="mh-head">
+          <div class="row gap10"><span class="av s" style="width:42px;height:42px;font-size:17px">س</span><div><div class="hi">صبح بخیر</div><b>سارا کاظمی</b></div></div>
+          <span class="icon-btn"><svg class="ic"><use href="#i-bell"/></svg><span class="dot"></span></span>
+        </div>
+        <div class="bal">
+          <svg class="deco" viewBox="0 0 200 200"><g fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5"><circle cx="100" cy="100" r="40"/><circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="96"/></g></svg>
+          <div class="l">موجودی کل</div>
+          <div class="v">84,320,000<small>تومان</small></div>
+          <div class="trend"><span class="chip"><svg class="ic s14"><use href="#i-trend"/></svg>18%</span>درآمد مهر تا امروز: 21,700,000</div>
+        </div>
+        <div class="qa">
+          <a><span><svg class="ic s22"><use href="#i-plus"/></svg></span>فاکتور</a>
+          <a><span><svg class="ic s22"><use href="#i-link"/></svg></span>لینک پرداخت</a>
+          <a><span><svg class="ic s22"><use href="#i-receipt"/></svg></span>ثبت هزینه</a>
+          <a><span><svg class="ic s22"><use href="#i-chart"/></svg></span>گزارش</a>
+        </div>
+        <div class="act-h">فعالیت&zwnj;های اخیر<span class="link-more">همه<svg class="ic s14"><use href="#i-chev-l"/></svg></span></div>
+        <div class="act"><span class="ib" style="background:var(--green-t);color:var(--green)"><svg class="ic s18"><use href="#i-in"/></svg></span><div><div class="nm">پرداخت فاکتور 041</div><div class="sb">استودیو نقش · امروز 10:24</div></div><span class="amt in">9,200,000</span></div>
+        <div class="act"><span class="ib" style="background:var(--saffron-t);color:var(--saffron-d)"><svg class="ic s18"><use href="#i-eye"/></svg></span><div><div class="nm">لینک پرداخت باز شد</div><div class="sb">نشر آبان · فاکتور 042</div></div><span class="amt out" style="font-weight:600;font-size:12.5px">2 بار</span></div>
+        <div class="act"><span class="ib" style="background:var(--paper-2);color:var(--ink-2)"><svg class="ic s18"><use href="#i-out"/></svg></span><div><div class="nm">اشتراک نرم&zwnj;افزار طراحی</div><div class="sb">هزینه · 9 مهر</div></div><span class="amt out">1,450,000</span></div>
+        <div class="act"><span class="ib" style="background:var(--green-t);color:var(--green)"><svg class="ic s18"><use href="#i-in"/></svg></span><div><div class="nm">پرداخت فاکتور 040</div><div class="sb">آژانس سپیدار · 9 مهر</div></div><span class="amt in">12,500,000</span></div>
+        <div class="tabbar">
+          <a class="on"><svg class="ic s22"><use href="#i-home"/></svg>خانه</a>
+          <a><svg class="ic s22"><use href="#i-invoice"/></svg>فاکتورها</a>
+          <span class="fab"><svg class="ic s24"><use href="#i-plus"/></svg></span>
+          <a><svg class="ic s22"><use href="#i-chart"/></svg>گزارش&zwnj;ها</a>
+          <a><svg class="ic s22"><use href="#i-user"/></svg>پروفایل</a>
+        </div>
+      </div>
+      <div class="home-indicator" style="color:var(--ink)"></div>
+    </div>
+  </div>
+
+  <!-- Window B (left): clients -->
+  <div class="window w-win w-b">
+    <div class="chrome"><b></b><b></b><b></b><div class="url">daftar.app/clients</div></div>
+    <div class="app">
+      <aside class="rail">
+        <svg class="mark"><use href="#mark"/></svg>
+        <a><svg class="ic"><use href="#i-grid"/></svg></a>
+        <a><svg class="ic"><use href="#i-invoice"/></svg></a>
+        <a><svg class="ic"><use href="#i-link"/></svg></a>
+        <a class="on"><svg class="ic"><use href="#i-users"/></svg></a>
+        <a><svg class="ic"><use href="#i-receipt"/></svg></a>
+        <a><svg class="ic"><use href="#i-chart"/></svg></a>
+        <span class="av s">س</span>
+      </aside>
+      <main class="main">
+        <div class="ph-head">
+          <div><h2>مشتری&zwnj;ها</h2><div class="muted">12 مشتری فعال</div></div>
+          <div class="row gap8"><div class="search" style="width:190px"><svg class="ic s18"><use href="#i-search"/></svg>جستجوی مشتری</div><span class="btn pri"><svg class="ic s18"><use href="#i-plus"/></svg>مشتری جدید</span></div>
+        </div>
+        <div class="cl-grid">
+          <div class="card cl"><div class="top"><span class="av s">آ</span><div class="grow"><div class="nm">نشر آبان</div><div class="sb">7 فاکتور · از 1403</div></div><span class="pill pend">در انتظار</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>86,400,000</b></div><svg class="spark" data-spark="6,9,7,12,10,17.6"></svg></div></div>
+          <div class="card cl"><div class="top"><span class="av g">ن</span><div class="grow"><div class="nm">استودیو نقش</div><div class="sb">11 فاکتور · از 1402</div></div><span class="pill late">1 معوق</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>102,800,000</b></div><svg class="spark" data-spark="8,11,9,13,9.2,5.4" data-late="1"></svg></div></div>
+          <div class="card cl"><div class="top"><span class="av b">س</span><div class="grow"><div class="nm">آژانس سپیدار</div><div class="sb">9 فاکتور · از 1403</div></div><span class="pill paid">تسویه</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>74,500,000</b></div><svg class="spark" data-spark="5,7,6.5,9,8,12.5"></svg></div></div>
+          <div class="card cl"><div class="top"><span class="av r">ب</span><div class="grow"><div class="nm">کافه بلوط</div><div class="sb">6 فاکتور · از 1404</div></div><span class="pill late">1 معوق</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>38,200,000</b></div><svg class="spark" data-spark="3,4.5,6,5,8,7.2" data-late="1"></svg></div></div>
+          <div class="card cl"><div class="top"><span class="av k">گ</span><div class="grow"><div class="nm">گالری آینه</div><div class="sb">4 فاکتور · از 1404</div></div><span class="pill pend">در انتظار</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>21,600,000</b></div><svg class="spark" data-spark="2,3,5,4,6,6.8"></svg></div></div>
+          <div class="card cl"><div class="top"><span class="av p">و</span><div class="grow"><div class="nm">فروشگاه ورق</div><div class="sb">3 فاکتور · از 1405</div></div><span class="pill paid">تسویه</span></div><div class="bot"><div class="sum">مجموع صورتحساب&zwnj;ها<b>9,900,000</b></div><svg class="spark" data-spark="1,2,2.5,3,3.2,4.2"></svg></div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+  const NS = "http://www.w3.org/2000/svg";
+  const S = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const T = (parent, x, y, str, attrs) => {
+    const t = S("text", Object.assign({ x, y, "font-family": "Vazirmatn", "font-size": 12, fill: "#7a827d", "text-anchor": "middle" }, attrs || {}), parent);
+    t.textContent = str;
+    return t;
+  };
+  const C = { green: "#1f5d4c", saffron: "#e2a23b", line: "#ebe8e0", ink3: "#7a827d", ink: "#1e2622", red: "#c8553d" };
+
+  // Catmull-Rom → cubic Bezier segments
+  function segs(p) {
+    const out = [];
+    for (let i = 0; i < p.length - 1; i++) {
+      const p0 = p[i - 1] || p[i], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2] || p2, t = 1 / 6;
+      out.push(`C${(p1[0] + (p2[0] - p0[0]) * t).toFixed(1)},${(p1[1] + (p2[1] - p0[1]) * t).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) * t).toFixed(1)},${(p2[1] - (p3[1] - p1[1]) * t).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`);
+    }
+    return out;
+  }
+  const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"];
+
+  // ---- Cover: monthly income area chart (reads right → left) ----
+  (function () {
+    const host = document.getElementById("cvChart");
+    const W = host.clientWidth, H = host.clientHeight;
+    const vals = [24.5, 31.2, 27.8, 36.4, 33.1, 41.8, 21.7];
+    const right = W - 40, left = 22, top = 8, bottom = H - 26, max = 50;
+    const step = (right - left) / (vals.length - 1);
+    const x = (i) => right - i * step, y = (v) => bottom - ((bottom - top) * v) / max;
+    const svg = S("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, style: "position:absolute;inset:0;overflow:visible;direction:ltr" }, host);
+    const g = S("linearGradient", { id: "cvGrad", x1: 0, y1: 0, x2: 0, y2: 1 }, S("defs", {}, svg));
+    S("stop", { offset: 0, "stop-color": C.green, "stop-opacity": 0.22 }, g);
+    S("stop", { offset: 1, "stop-color": C.green, "stop-opacity": 0 }, g);
+    [0, 25, 50].forEach((v) => {
+      S("line", { x1: left - 14, x2: right + 10, y1: y(v), y2: y(v), stroke: C.line, "stroke-width": 1, "stroke-dasharray": v ? "3 5" : "" }, svg);
+      T(svg, W - 2, y(v) + 4, String(v), { "text-anchor": "end" });
+    });
+    const pts = vals.map((v, i) => [x(i), y(v)]);
+    const sg = segs(pts);
+    S("path", { d: `M${pts[0][0]},${pts[0][1]} ${sg.slice(0, 5).join(" ")} L${pts[5][0]},${bottom} L${pts[0][0]},${bottom} Z`, fill: "url(#cvGrad)" }, svg);
+    S("path", { d: `M${pts[5][0]},${pts[5][1]} ${sg[5]} L${pts[6][0]},${bottom} L${pts[5][0]},${bottom} Z`, fill: "url(#cvGrad)", opacity: 0.45 }, svg);
+    S("path", { d: `M${pts[0][0]},${pts[0][1]} ${sg.slice(0, 5).join(" ")}`, fill: "none", stroke: C.green, "stroke-width": 2.5, "stroke-linecap": "round" }, svg);
+    S("path", { d: `M${pts[5][0]},${pts[5][1]} ${sg[5]}`, fill: "none", stroke: C.green, "stroke-width": 2.5, "stroke-dasharray": "2 6", "stroke-linecap": "round" }, svg);
+    const HI = 3; // hovered month (تیر)
+    S("line", { x1: pts[HI][0], x2: pts[HI][0], y1: pts[HI][1], y2: bottom, stroke: C.ink, "stroke-opacity": 0.25, "stroke-dasharray": "3 4" }, svg);
+    pts.forEach((p, i) => {
+      if (i === HI) {
+        S("circle", { cx: p[0], cy: p[1], r: 10, fill: C.green, "fill-opacity": 0.14 }, svg);
+        S("circle", { cx: p[0], cy: p[1], r: 5.5, fill: C.green, stroke: "#fff", "stroke-width": 2.5 }, svg);
+      } else if (i === 6) {
+        S("circle", { cx: p[0], cy: p[1], r: 3.5, fill: "#fff", stroke: C.green, "stroke-width": 2, "stroke-opacity": 0.6 }, svg);
+      } else {
+        S("circle", { cx: p[0], cy: p[1], r: 3.5, fill: "#fff", stroke: C.green, "stroke-width": 2 }, svg);
+      }
+      T(svg, p[0], H - 4, months[i], i === HI ? { fill: C.ink, "font-weight": 700 } : {});
+    });
+    const tip = document.getElementById("cvTip");
+    tip.style.left = pts[HI][0] + "px";
+    tip.style.top = pts[HI][1] + "px";
+  })();
+
+  // ---- D2: income vs expense grouped bars (reads right → left) ----
+  (function () {
+    const host = document.getElementById("d2Bars");
+    const W = host.clientWidth, H = host.clientHeight;
+    const inc = [24.5, 31.2, 27.8, 36.4, 33.1, 41.8], exp = [8.2, 9.6, 7.4, 12.1, 9.8, 10.4];
+    const right = W - 34, left = 0, top = 44, bottom = H - 28, max = 45;
+    const gw = (right - left) / inc.length, bw = 22, gap = 6;
+    const y = (v) => bottom - ((bottom - top) * v) / max;
+    const svg = S("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, style: "position:absolute;inset:0;overflow:visible;direction:ltr" }, host);
+    const hi = 5, hx = right - gw * (hi + 0.5);
+    S("rect", { x: hx - gw / 2 + 8, y: top - 12, width: gw - 16, height: bottom - top + 12, rx: 12, fill: "#f3f0e9" }, svg);
+    [0, 15, 30, 45].forEach((v) => {
+      S("line", { x1: left, x2: right + 6, y1: y(v), y2: y(v), stroke: C.line, "stroke-dasharray": v ? "3 5" : "" }, svg);
+      T(svg, W - 2, y(v) + 4, String(v), { "text-anchor": "end" });
+    });
+    const bar = (cx, v, fill) => {
+      const h = bottom - y(v), r = 6, x0 = cx - bw / 2;
+      S("path", { d: `M${x0},${bottom} V${y(v) + r} Q${x0},${y(v)} ${x0 + r},${y(v)} H${x0 + bw - r} Q${x0 + bw},${y(v)} ${x0 + bw},${y(v) + r} V${bottom} Z`, fill }, svg);
+      return h;
+    };
+    inc.forEach((v, i) => {
+      const cx = right - gw * (i + 0.5);
+      bar(cx + (bw + gap) / 2, v, C.green); // income first (right side) in RTL
+      bar(cx - (bw + gap) / 2, exp[i], C.saffron);
+      T(svg, cx, H - 4, months[i], i === hi ? { fill: C.ink, "font-weight": 700, "font-size": 13 } : { "font-size": 13 });
+    });
+    const tip = document.getElementById("d2Tip");
+    tip.style.left = hx + "px";
+    tip.style.top = y(inc[hi]) - 6 + "px";
+  })();
+
+  // ---- D2: expense category donut ----
+  (function () {
+    const svg = document.getElementById("d2Donut");
+    const parts = [[31, C.green], [24, C.saffron], [22, "#8fb5a4"], [13, "#c9b99a"], [10, "#dcd6c8"]];
+    const r = 82, c = 2 * Math.PI * r, gap = 3;
+    let acc = 0;
+    const g = S("g", { transform: "rotate(-90 100 100)" }, svg);
+    parts.forEach(([p, col]) => {
+      const len = (p / 100) * c;
+      S("circle", { cx: 100, cy: 100, r, fill: "none", stroke: col, "stroke-width": 26, "stroke-dasharray": `${len - gap} ${c - len + gap}`, "stroke-dashoffset": -acc }, g);
+      acc += len;
+    });
+  })();
+
+  // ---- Client sparklines ----
+  document.querySelectorAll("svg.spark").forEach((svg) => {
+    const v = svg.dataset.spark.split(",").map(Number);
+    const W = 84, H = 32, mx = Math.max(...v), mn = Math.min(...v);
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    // oldest on the right, newest on the left (RTL time axis)
+    const pts = v.map((d, i) => [W - 4 - (i * (W - 8)) / (v.length - 1), H - 5 - ((d - mn) / (mx - mn || 1)) * (H - 10)]);
+    const late = svg.dataset.late === "1";
+    const sg = segs(pts);
+    const id = "sg" + Math.random().toString(36).slice(2, 7);
+    const gr = S("linearGradient", { id, x1: 0, y1: 0, x2: 0, y2: 1 }, S("defs", {}, svg));
+    S("stop", { offset: 0, "stop-color": C.green, "stop-opacity": 0.18 }, gr);
+    S("stop", { offset: 1, "stop-color": C.green, "stop-opacity": 0 }, gr);
+    S("path", { d: `M${pts[0][0]},${pts[0][1]} ${sg.join(" ")} L${pts[pts.length - 1][0]},${H} L${pts[0][0]},${H} Z`, fill: `url(#${id})` }, svg);
+    S("path", { d: `M${pts[0][0]},${pts[0][1]} ${sg.join(" ")}`, fill: "none", stroke: C.green, "stroke-width": 2, "stroke-linecap": "round" }, svg);
+    const e = pts[pts.length - 1];
+    S("circle", { cx: e[0], cy: e[1], r: 3.5, fill: late ? C.red : C.green, stroke: "#fff", "stroke-width": 1.5 }, svg);
+  });
+
+  // ---- QR-like codes (decorative, deterministic) ----
+  document.querySelectorAll("svg[data-qr]").forEach((svg) => {
+    let s = Number(svg.dataset.qr) * 9301 + 49297;
+    const rnd = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+    const n = 25, size = 100, u = size / n;
+    svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
+    const finder = (cx, cy) => (i, j) => i >= cx && i < cx + 7 && j >= cy && j < cy + 7;
+    const fs = [finder(0, 0), finder(n - 7, 0), finder(0, n - 7)];
+    const inFinder = (i, j) => fs.some((f) => f(i, j)) || (i < 8 && j < 8) || (i >= n - 8 && j < 8) || (i < 8 && j >= n - 8);
+    let d = "";
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+      if (inFinder(i, j)) continue;
+      if (rnd() < 0.48) d += `M${i * u},${j * u}h${u}v${u}h${-u}z`;
+    }
+    S("path", { d, fill: C.ink }, svg);
+    [[0, 0], [n - 7, 0], [0, n - 7]].forEach(([cx, cy]) => {
+      S("rect", { x: cx * u + u / 2, y: cy * u + u / 2, width: 6 * u, height: 6 * u, rx: 1.5 * u, fill: "none", stroke: C.ink, "stroke-width": u }, svg);
+      S("rect", { x: (cx + 2) * u, y: (cy + 2) * u, width: 3 * u, height: 3 * u, rx: 0.8 * u, fill: C.ink }, svg);
+    });
+  });
+
+  // ---- Persian digits + separators for every UI string (skip .en, status bar, URL bar) ----
+  const FA = "۰۱۲۳۴۵۶۷۸۹";
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach((n) => {
+    const p = n.parentElement;
+    if (!p || p.closest(".en, .statusbar, .url, .kbd, script, style")) return;
+    if (!/[0-9%]/.test(n.nodeValue)) return;
+    n.nodeValue = n.nodeValue
+      .replace(/(\d),(?=\d)/g, "$1٬")
+      .replace(/(\d)\.(?=\d)/g, "$1٫")
+      .replace(/%/g, "٪")
+      .replace(/\d/g, (d) => FA[d]);
+  });
+
+  // ---- Annotation callouts (after fonts settle) ----
+  function callouts() {
+    document.querySelectorAll(".board").forEach((board) => {
+      const cs = board.querySelectorAll(".callout[data-target]");
+      if (!cs.length) return;
+      const br = board.getBoundingClientRect();
+      if (!br.width) return;
+      board.querySelectorAll(".callout-lines").forEach((e) => e.remove());
+      const svg = S("svg", { class: "callout-lines" }, board);
+      cs.forEach((c) => {
+        const t = board.querySelector(c.dataset.target);
+        const tr = t.getBoundingClientRect();
+        const ax = Number(c.dataset.ax || 0.5);
+        const tx = tr.left - br.left + tr.width * ax + Number(c.dataset.dx || 0), ty = tr.top - br.top + tr.height / 2;
+        c.style.top = ty - c.offsetHeight / 2 + "px";
+        const cr = c.getBoundingClientRect();
+        const sx = c.dataset.side === "l" ? cr.right - br.left : cr.left - br.left;
+        S("line", { x1: sx, y1: ty, x2: tx, y2: ty, stroke: C.ink, "stroke-width": 1.5 }, svg);
+        S("circle", { cx: tx, cy: ty, r: 12, fill: C.saffron, "fill-opacity": 0.28 }, svg);
+        S("circle", { cx: tx, cy: ty, r: 5.5, fill: C.saffron, stroke: "#fff", "stroke-width": 2.5 }, svg);
+      });
+    });
+  }
+  window.__callouts = callouts;
+  document.fonts.ready.then(() => requestAnimationFrame(callouts));
+})();
+</script>
+<script src="board.js"></script>
+<script>
+  // board.js toggles which board is visible; recompute callouts once layout is final.
+  document.fonts.ready.then(() => setTimeout(() => window.__callouts && window.__callouts(), 50));
+</script>
+</body>
+</html>

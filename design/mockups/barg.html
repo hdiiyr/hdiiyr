@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Barg — mockups</title>
+<link rel="stylesheet" href="kit.css">
+<link rel="stylesheet" href="barg.css">
+</head>
+<body>
+
+<!-- Icon sprite: 24px grid, 1.75 stroke, round caps (stroke comes from .ic) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5"/></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1Z"/></symbol>
+    <symbol id="i-type" viewBox="0 0 24 24"><path d="M3.5 7.5V5h10v2.5M8.5 5v14M6.5 19h4M14.5 12v-1.5h6.5V12M17.75 10.5V19M16.25 19h3"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="3"/></symbol>
+    <symbol id="i-books" viewBox="0 0 24 24"><rect x="3.5" y="4" width="4.5" height="16" rx="1.2"/><rect x="10" y="4" width="4.5" height="16" rx="1.2"/><path d="m16.6 5.6 2.9-.8a1 1 0 0 1 1.2.7l3 13.3"/><path d="m16.6 5.6 3.6 14.3"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M15.2 4.8a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L8.5 19.5H4.5v-4z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12h.01" stroke-width="3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.5M8 7.5l4-4 4 4M5 12.5V18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5v-2a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 4.5h14A1.5 1.5 0 0 1 20.5 6v9.5A1.5 1.5 0 0 1 19 17h-4l-3 3-3-3H5a1.5 1.5 0 0 1-1.5-1.5V6A1.5 1.5 0 0 1 5 4.5Z"/><path d="M8 9h8M11 12.5h5"/></symbol>
+    <symbol id="i-lh1" viewBox="0 0 24 24"><path d="M4 7.5h16M4 10.5h16M4 13.5h16M8 16.5h12"/></symbol>
+    <symbol id="i-lh2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M8 18h12"/></symbol>
+    <symbol id="i-lh3" viewBox="0 0 24 24"><path d="M4 4h16M4 9.33h16M4 14.67h16M8 20h12"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 21a6 6 0 0 0 6-6c0-4-3-6.5-4.5-10.5-1 2.5-2.2 3.8-3.5 4.8C8.4 10.6 6 12.3 6 15a6 6 0 0 0 6 6Z"/><path d="M12 21a2.5 2.5 0 0 1-2.5-2.5c0-1.8 1.4-2.6 2.5-4 1.1 1.4 2.5 2.2 2.5 4A2.5 2.5 0 0 1 12 21Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4.5 19.5C4.5 11 10 5 19.5 4.5 19 14 13 19.5 4.5 19.5Z"/><path d="m4.5 19.5 8.5-8.5"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="15" cy="9.5" r="1.8"/><path d="m3.5 16 4.5-4.5 8 8"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6.5h11M4 12h11M4 17.5h11"/><path d="M19.5 6.5h.01M19.5 12h.01M19.5 17.5h.01" stroke-width="2.6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ========== Shared screen templates ========== -->
+<template id="tpl-reader">
+  <div class="r-top">
+    <span class="ib"><svg class="ic"><use href="#i-back"/></svg></span>
+    <span class="r-name">باغ‌های خاموش</span>
+    <div class="row g8">
+      <span class="ib"><svg class="ic"><use href="#i-type"/></svg></span>
+      <span class="ib"><svg class="ic"><use href="#i-bookmark"/></svg></span>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-chap">فصل سوم</div>
+    <div class="r-h">باران</div>
+    <div class="r-text"></div>
+  </div>
+  <div class="r-foot">
+    <div class="bar"><i style="width:19%"></i></div>
+    <div class="row"><span class="r-pg"></span><span>۹ دقیقه تا پایان فصل</span></div>
+  </div>
+</template>
+
+<template id="tpl-library">
+  <div class="pad">
+    <div class="lib-head">
+      <div class="h1">کتابخانه</div>
+      <div class="row g8">
+        <span class="ib"><svg class="ic"><use href="#i-search"/></svg></span>
+        <span class="avatar">ن</span>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="cv sm" data-b="bagh"></div>
+      <div class="cont-b">
+        <div class="kick">در حال خواندن</div>
+        <div class="cont-t">باغ‌های خاموش</div>
+        <div class="cont-a">نسیم آذری · فصل سوم</div>
+        <div class="bar"><i style="width:68%"></i></div>
+        <div class="cont-m"><span>۶۸٪ خوانده‌شده</span><span class="btn-s">ادامه<svg class="ic s18"><use href="#i-chev-l"/></svg></span></div>
+      </div>
+    </div>
+    <div class="goal">
+      <svg class="ring" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#d2c9ea" stroke-width="5"/><circle cx="20" cy="20" r="16" fill="none" stroke="#f0a830" stroke-width="5" stroke-linecap="round" stroke-dasharray="80.4 100.6" transform="rotate(-90 20 20)"/></svg>
+      <div><div class="goal-t">امروز ۲۴ از ۳۰ دقیقه</div><div class="goal-s">۶ دقیقه تا هدف روزانه</div></div>
+      <span class="streak"><svg class="ic s18"><use href="#i-flame"/></svg>۱۲ روز</span>
+    </div>
+    <div class="sec"><b>قفسه‌ی من</b><span>۲۴ کتاب</span></div>
+    <div class="chips"><span class="chip on">همه</span><span class="chip">در حال خواندن</span><span class="chip">خوانده‌شده</span><span class="chip">برای بعد</span></div>
+    <div class="shelf"><div class="cv sm" data-b="istgah"></div><div class="cv sm" data-b="daftar"></div><div class="cv sm" data-b="kooh"></div></div>
+    <div class="plank"></div>
+    <div class="shelf-l">
+      <div><b>ایستگاه نارنج</b><span>مهتاب سلیمی</span></div>
+      <div><b>دفترچه‌ی مه</b><span>لیلا کرمانی</span></div>
+      <div><b>کوه‌های کاغذی</b><span>آرش نیک‌پور</span></div>
+    </div>
+    <div class="shelf"><div class="cv sm" data-b="naghsheh"></div><div class="cv sm" data-b="fanus"></div><div class="cv sm" data-b="ayeneh"></div></div>
+  </div>
+  <nav class="tabbar" data-on="0"></nav>
+</template>
+
+<template id="tpl-notes">
+  <div class="pad">
+    <div class="n-head">
+      <div class="h1">یادداشت‌ها</div>
+      <span class="ib"><svg class="ic"><use href="#i-search"/></svg></span>
+    </div>
+    <div class="n-sub">۴۸ هایلایت و ۱۲ یادداشت در ۷ کتاب</div>
+    <div class="chips"><span class="chip on">همه</span><span class="chip">هایلایت‌ها</span><span class="chip">یادداشت‌ها</span><span class="chip">نشانک‌ها</span></div>
+    <div class="bk">
+      <div class="cv xs" data-b="bagh"></div>
+      <div class="bk-b"><div class="bk-t">باغ‌های خاموش</div><div class="bk-m">نسیم آذری · ۱۴ مورد</div></div>
+      <svg class="ic s20"><use href="#i-chev-l"/></svg>
+    </div>
+    <div class="hcard">
+      <div class="qt"><mark class="hl hl-gold">انگار خانه هم نفس عمیقی کشیده بود و قرار نبود امروز کسی جایی برود.</mark></div>
+      <div class="nt"><svg class="ic s18"><use href="#i-pen"/></svg><span>همین حس را صبح‌های جمعه در خانه‌ی پدری داشتم.</span></div>
+      <div class="meta"><span>فصل سوم · صفحه‌ی ۴۲</span><span>۸ مهر</span></div>
+    </div>
+    <div class="hcard">
+      <div class="qt"><mark class="hl hl-lilac">خانه هنوز بوی چوب نم‌خورده و چای دیشب را می‌داد.</mark></div>
+      <div class="meta"><span>فصل سوم · صفحه‌ی ۴۲</span><span>۸ مهر</span></div>
+    </div>
+    <div class="bk">
+      <div class="cv xs" data-b="naghsheh"></div>
+      <div class="bk-b"><div class="bk-t">نقشه‌ی شهر بی‌نام</div><div class="bk-m">کاوه رستمی · ۶ مورد</div></div>
+      <svg class="ic s20"><use href="#i-chev-l"/></svg>
+    </div>
+    <div class="hcard">
+      <div class="qt"><mark class="hl hl-gold">هر کوچه‌ای که اسم نداشت، برای خودش قصه‌ای ساخته بود.</mark></div>
+      <div class="meta"><span>فصل یکم · صفحه‌ی ۱۸</span><span>۲ مهر</span></div>
+    </div>
+  </div>
+  <nav class="tabbar" data-on="2"></nav>
+</template>
+
+<template id="tpl-sheet">
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="sh-head"><b>نمایش متن</b><span class="ib"><svg class="ic s20"><use href="#i-x"/></svg></span></div>
+    <div class="sh-sec">
+      <div class="sh-lbl"><span>اندازه‌ی قلم</span><b>۱۸</b></div>
+      <div class="slider"><span class="a1">آ</span><div class="track"><i style="width:56%"></i><b style="right:56%"></b></div><span class="a2">آ</span></div>
+    </div>
+    <div class="sh-sec">
+      <div class="sh-lbl"><span>فاصله‌ی سطرها</span><b>۲٫۰</b></div>
+      <div class="seg">
+        <span><svg class="ic"><use href="#i-lh1"/></svg></span>
+        <span class="on"><svg class="ic"><use href="#i-lh2"/></svg></span>
+        <span><svg class="ic"><use href="#i-lh3"/></svg></span>
+      </div>
+    </div>
+    <div class="sh-sec">
+      <div class="sh-lbl"><span>پوسته</span></div>
+      <div class="sws">
+        <div class="sw"><i style="background:#f6f4fb;color:#2c2457">آ</i>کاغذی</div>
+        <div class="sw on"><i style="background:#f3e9d6;color:#3d2e1d">آ</i>سپیا</div>
+        <div class="sw"><i style="background:#d9d2ec;color:#2c2457">آ</i>یاسی</div>
+        <div class="sw"><i style="background:#1b1735;color:#d6cfea">آ</i>شب</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- ========== cover ========== -->
+<section class="board" id="cover" data-size="cover">
+  <svg class="abs" style="inset:0" width="1600" height="1000" viewBox="0 0 1600 1000" aria-hidden="true">
+    <circle cx="1318" cy="292" r="124" fill="#f0a830"/>
+    <path d="M168 940C186 704 360 556 650 512 624 770 450 916 168 940Z" fill="#c6bbe7"/>
+    <path d="M196 918C320 800 456 680 616 540" stroke="#ebe7f6" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <circle cx="372" cy="196" r="9" fill="#2c2457"/>
+    <circle cx="1356" cy="804" r="6" fill="#2c2457"/>
+  </svg>
+  <div class="phone" data-z=".9" style="left:318px;top:179px;transform:rotate(-5deg);z-index:1"><div class="screen" data-tpl="notes"></div></div>
+  <div class="phone" data-z=".9" style="left:943px;top:134px;transform:rotate(5deg);z-index:1"><div class="screen" data-tpl="library"></div></div>
+  <div class="phone" data-z="1.04" style="left:613px;top:94px;z-index:2"><div class="screen reader th-paper" data-tpl="reader" data-mode="hl" style="--fs:17px;--lines:14"></div></div>
+</section>
+
+<!-- ========== detail ========== -->
+<section class="board" id="detail" data-size="detail">
+  <div class="phone" data-z="1.3" style="left:206px;top:43px">
+    <div class="screen reader th-sepia" data-tpl="reader" data-extra="sheet" data-mode="plain" style="--fs:18px;--lines:12"></div>
+  </div>
+</section>
+
+<!-- ========== d1: three themes ========== -->
+<section class="board" id="d1" data-size="cover">
+  <div class="pnl" style="left:1056px;background:var(--lilac);color:var(--ink)"><div class="pnl-h"><b>کاغذی</b><span>قلم ۱۶<i></i>سطر ۲٫۰<i></i>روز</span></div></div>
+  <div class="pnl" style="left:576px;background:#eadab9;color:#3d2e1d"><div class="pnl-h"><b>سپیا</b><span>قلم ۱۸<i></i>سطر ۲٫۰<i></i>عصر</span></div></div>
+  <div class="pnl" style="left:96px;background:var(--ink);color:#e9e4f5"><div class="pnl-h"><b>شب</b><span>قلم ۲۰<i></i>سطر ۲٫۱<i></i>نور کم</span></div></div>
+
+  <div class="phone" data-z=".82" style="left:1132px;top:200px"><div class="screen reader th-paper" data-tpl="reader" data-mode="plain" data-page="۴۲ از ۲۱۸" style="--fs:16px;--lines:15"></div></div>
+  <div class="phone" data-z=".82" style="left:652px;top:200px"><div class="screen reader th-sepia" data-tpl="reader" data-mode="plain" data-page="۴۷ از ۲۴۱" style="--fs:18px;--lines:13"></div></div>
+  <div class="phone" data-z=".82" style="left:172px;top:200px"><div class="screen reader th-night" data-tpl="reader" data-mode="plain" data-page="۵۵ از ۲۸۶" style="--fs:20px;--lh:2.1;--lines:11"></div></div>
+
+  <span class="mk" style="left:1137px;top:562px">۱</span>
+  <span class="mk" style="left:943px;top:793px">۲</span>
+  <span class="mk" style="left:177px;top:324px">۳</span>
+  <div class="cap" style="left:1056px"><div class="callout"><span class="mk">۱</span>تراز دوطرفه، بدون شکاف میان واژه‌ها</div></div>
+  <div class="cap" style="left:576px"><div class="callout"><span class="mk">۲</span>عدد فارسی؛ صفحه‌ها با قلم دوباره شمرده می‌شوند</div></div>
+  <div class="cap" style="left:96px"><div class="callout"><span class="mk">۳</span>نیلی تیره به‌جای سیاه مطلق</div></div>
+</section>
+
+<!-- ========== d2: highlights ========== -->
+<section class="board" id="d2" data-size="cover">
+  <div class="phone" style="left:1120px;top:60px">
+    <div class="screen reader th-paper" data-tpl="reader" data-mode="sel" style="--fs:17px;--lines:14">
+      <div class="tbar" data-anchor>
+        <div class="tdots">
+          <span class="tdot on" style="background:#f0a830"></span>
+          <span class="tdot" style="background:#a797d8"></span>
+          <span class="tdot" style="background:#d9b98a"></span>
+          <span class="tdot ul"></span>
+        </div>
+        <span class="tsep"></span>
+        <div class="tacts">
+          <span class="tbtn on"><svg class="ic s20"><use href="#i-note"/></svg>یادداشت</span>
+          <span class="tbtn"><svg class="ic s20"><use href="#i-copy"/></svg>کپی</span>
+          <span class="tbtn"><svg class="ic s20"><use href="#i-share"/></svg>اشتراک</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="phone" data-z=".88" style="left:690px;top:130px"><div class="screen" data-tpl="notes"></div></div>
+
+  <div class="qcard" style="left:216px;top:170px;transform:rotate(-4deg)">
+    <div class="brand"><svg viewBox="0 0 24 24"><path d="M4 20C4 10.5 10 4.5 20.5 4 20 14.5 14 20 4 20Z" fill="#f0a830"/><path d="M5 19 13.5 10.5" stroke="#2c2457" stroke-width="1.75" stroke-linecap="round"/></svg>برگ</div>
+    <div class="qmark" style="font:400 120px/1 Gloock, serif;color:var(--gold);height:56px">&#8221;</div>
+    <div class="qtext">انگار خانه هم نفس عمیقی کشیده بود و قرار نبود امروز کسی جایی برود.</div>
+    <svg class="qleaf" viewBox="0 0 200 200" aria-hidden="true"><path d="M20 190C22 110 78 50 176 36 170 128 112 184 20 190Z" fill="#f0a830" opacity=".95"/><path d="M34 178C76 136 116 98 156 60" stroke="#2c2457" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+    <div class="qfoot"><b>نسیم آذری</b><span>باغ‌های خاموش · فصل سوم</span></div>
+  </div>
+  <div class="sharebar" style="left:236px;top:690px">
+    <span class="lbl">قالب</span>
+    <span class="swc on" style="background:#2c2457"></span>
+    <span class="swc" style="background:#f3e9d6"></span>
+    <span class="swc" style="background:#d9d2ec"></span>
+    <span class="btn"><svg class="ic s20"><use href="#i-image"/></svg>ذخیره‌ی تصویر</span>
+  </div>
+
+  <div class="step" style="left:1170px;top:868px"><span class="n">۱</span><div><b>انتخاب و رنگ</b><span>جمله را بکش؛ رنگ بزن یا یادداشت بگذار.</span></div></div>
+  <div class="step" style="left:720px;top:868px"><span class="n">۲</span><div><b>همه کنار هم</b><span>هایلایت‌ها و یادداشت‌ها، کتاب به کتاب.</span></div></div>
+  <div class="step" style="left:250px;top:868px"><span class="n">۳</span><div><b>کارت نقل‌قول</b><span>یک جمله، یک کارت آماده‌ی اشتراک.</span></div></div>
+</section>
+
+<!-- ========== wide: five screens ========== -->
+<section class="board" id="wide" data-size="wide">
+  <!-- 5: reading goal (leftmost) -->
+  <div class="phone" data-z=".94" style="left:51px;top:133px">
+    <div class="screen">
+      <div class="pad">
+        <div class="lib-head"><div class="h1">پیشرفت</div><span class="ib"><svg class="ic"><use href="#i-calendar"/></svg></span></div>
+        <div class="gl-ring">
+          <svg viewBox="0 0 196 196" width="196" height="196"><circle cx="98" cy="98" r="84" fill="none" stroke="#e4dff0" stroke-width="16"/><circle cx="98" cy="98" r="84" fill="none" stroke="#f0a830" stroke-width="16" stroke-linecap="round" stroke-dasharray="422.2 527.8" transform="rotate(-90 98 98)"/></svg>
+          <div class="gl-c"><span>امروز</span><b>۲۴</b><span>از ۳۰ دقیقه</span></div>
+        </div>
+        <div class="gl-msg">فقط <b>۶ دقیقه</b> مانده؛ یک بخش کوتاه کافی است.</div>
+        <div class="card" style="margin-top:16px">
+          <div class="wk-h">این هفته<span>۲ ساعت و ۴۸ دقیقه</span></div>
+          <div class="wk">
+            <div><i class="full" style="height:44px"></i>ش</div>
+            <div><i class="full" style="height:52px"></i>ی</div>
+            <div><i style="height:22px"></i>د</div>
+            <div><i class="full" style="height:48px"></i>س</div>
+            <div class="now"><i class="today" style="height:38px"></i>چ</div>
+            <div><i class="empty"></i>پ</div>
+            <div><i class="empty"></i>ج</div>
+          </div>
+        </div>
+        <div class="duo">
+          <div class="card"><div class="mini-k"><svg class="ic s18" style="color:var(--gold)"><use href="#i-flame"/></svg>زنجیره</div><div class="mini-v">۱۲ <small>روز پیاپی</small></div></div>
+          <div class="card"><div class="mini-k"><svg class="ic s18" style="color:var(--violet)"><use href="#i-books"/></svg>کتاب‌های امسال</div><div class="mini-v">۱۴ <small>از ۲۴</small></div><div class="bar"><i style="width:58%"></i></div></div>
+        </div>
+        <div class="rest"><svg class="ic s20"><use href="#i-leaf"/></svg><span>یک روز جا ماند؟ زنجیره‌ات یک روز صبر می‌کند.</span></div>
+      </div>
+      <nav class="tabbar" data-on="3"></nav>
+    </div>
+  </div>
+
+  <!-- 4: reader -->
+  <div class="phone" data-z=".94" style="left:441px;top:133px"><div class="screen reader th-paper" data-tpl="reader" data-mode="hl" style="--fs:17px;--lines:14"></div></div>
+
+  <!-- 3: book detail -->
+  <div class="phone" data-z=".94" style="left:831px;top:133px">
+    <div class="screen bdet">
+      <div class="r-top" style="--ibg:rgba(246,244,251,.7)">
+        <span class="ib"><svg class="ic"><use href="#i-back"/></svg></span>
+        <div class="row g8"><span class="ib"><svg class="ic"><use href="#i-share"/></svg></span><span class="ib"><svg class="ic"><use href="#i-more"/></svg></span></div>
+      </div>
+      <div class="pad">
+        <div class="bd-cv"><div class="cv" data-b="bagh"></div></div>
+        <div class="bd-t">باغ‌های خاموش</div>
+        <div class="bd-a">نسیم آذری</div>
+        <div class="stats">
+          <div><b>۴٫۶<svg class="ic"><use href="#i-star"/></svg></b><span>۱٬۲۴۰ امتیاز</span></div>
+          <div><b>۲۱۸</b><span>صفحه</span></div>
+          <div><b>۴ ساعت</b><span>زمان خواندن</span></div>
+        </div>
+        <div class="bd-act"><div class="btn">ادامه‌ی خواندن<span class="pc">۶۸٪</span></div><span class="ib"><svg class="ic"><use href="#i-bookmark"/></svg></span></div>
+        <div class="bd-h">درباره‌ی کتاب</div>
+        <div class="bd-p">روایتی آرام از سه نسل یک خانواده در خانه‌ای قدیمی که هر فصلش با تغییر هوا آغاز می‌شود؛ باران، برف، باد و آفتاب.</div>
+        <div class="tags"><span class="tag">داستان</span><span class="tag">خانواده</span><span class="tag">رمان کوتاه</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: library -->
+  <div class="phone" data-z=".94" style="left:1220px;top:133px"><div class="screen" data-tpl="library"></div></div>
+
+  <!-- 1: onboarding (rightmost) -->
+  <div class="phone" data-z=".94" style="left:1610px;top:133px">
+    <div class="screen">
+      <div class="pad">
+        <div class="ob-top">
+          <div class="brand"><svg viewBox="0 0 24 24"><path d="M4 20C4 10.5 10 4.5 20.5 4 20 14.5 14 20 4 20Z" fill="#f0a830"/><path d="M5 19 13.5 10.5" stroke="#2c2457" stroke-width="1.75" stroke-linecap="round"/></svg>برگ</div>
+          <span class="ob-skip">رد شدن</span>
+        </div>
+        <svg class="ob-art" viewBox="0 0 290 290" aria-hidden="true">
+          <circle cx="145" cy="150" r="128" fill="#ebe7f6"/>
+          <circle cx="145" cy="150" r="98" fill="#d9d2ec"/>
+          <path d="M100 238C72 164 98 90 168 54c30 70 8 150-68 184Z" fill="#a797d8"/>
+          <path d="M84 248C84 152 140 86 238 66c4 100-56 168-154 182Z" fill="#2c2457"/>
+          <path d="M92 240C132 196 172 146 224 84" stroke="#f0a830" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <g stroke="#d9d2ec" stroke-width="4.5" stroke-linecap="round">
+            <path d="M190 128h34"/>
+            <path d="M172 148h50"/>
+            <path d="M156 168h60"/>
+            <path d="M140 188h66"/>
+            <path d="M150 208h40"/>
+          </g>
+          <circle cx="234" cy="206" r="18" fill="#f0a830"/>
+          <circle cx="62" cy="98" r="6" fill="#2c2457"/>
+        </svg>
+        <div class="ob-h">برگ به برگ، با حوصله</div>
+        <div class="ob-p">کتاب‌های فارسی را با حروف‌چینی درست بخوان، هایلایت کن و هر روز کمی جلوتر برو.</div>
+        <div class="dots"><i class="on"></i><i></i><i></i></div>
+      </div>
+      <div class="ob-btns"><div class="btn">شروع کنیم</div><div class="ob-link">حساب داری؟ <b>وارد شو</b></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  // Original prose (written for this mockup).
+  const P1 = "صبح با صدای باران شروع شد. قطره‌ها آرام روی شیروانی می‌نشستند و از لبه‌ی ناودان کهنه، یکی‌یکی در حوض حیاط می‌چکیدند. ";
+  const S1 = "خانه هنوز بوی چوب نم‌خورده و چای دیشب را می‌داد.";
+  const P2 = "من روی پله‌ی ایوان نشستم و گذاشتم صدای باران همه‌چیز را آهسته کند. ";
+  const Q = "انگار خانه هم نفس عمیقی کشیده بود و قرار نبود امروز کسی جایی برود.";
+  const P3 = "مادربزرگ زودتر از همه بیدار شده بود. سماور را روشن کرده بود و کنار پنجره نشسته بود، با همان شال سبزی که هر زمستان از صندوقچه بیرون می‌آورد. چیزی نمی‌گفت؛ فقط گاهی به درخت انار نگاه می‌کرد که زیر باران خم شده بود و هر بار لبخند کوچکی می‌زد، انگار درخت جوابش را داده باشد.";
+  const PIN = '<span class="npin"><svg class="ic"><use href="#i-pen"/></svg></span>';
+  function prose(mode) {
+    let s1 = S1, q = Q;
+    if (mode === "hl") s1 = '<mark class="hl hl-lilac">' + S1 + "</mark>";
+    if (mode === "hl") q = '<mark class="hl hl-gold">' + Q + "</mark>" + PIN;
+    if (mode === "sel") q = '<span class="sel"><i class="hd hd-s"></i>' + Q + '<i class="hd hd-e"></i></span>';
+    return "<p>" + P1 + s1 + "</p><p>" + P2 + q + "</p><p>" + P3 + "</p>";
+  }
+
+  // Fictional books; art drawn on a 200x300 grid, bottom 60%.
+  const BOOKS = {
+    bagh: { t: "باغ‌های<br>خاموش", a: "نسیم آذری", bg: "#2c2457", fg: "#f6f4fb",
+      art: '<circle cx="66" cy="200" r="48" fill="#f0a830"/><path d="M26 300C32 222 88 172 180 160 176 242 118 292 26 300Z" fill="#d9d2ec"/><path d="M40 290C82 252 124 214 166 174" stroke="#2c2457" stroke-width="3.5" fill="none" stroke-linecap="round"/>' },
+    naghsheh: { t: "نقشه‌ی<br>شهر بی‌نام", a: "کاوه رستمی", bg: "#f0a830", fg: "#2c2457",
+      art: '<g fill="#2c2457"><rect x="14" y="150" width="56" height="42" rx="4"/><rect x="78" y="150" width="36" height="70" rx="4"/><rect x="122" y="150" width="64" height="30" rx="4"/><rect x="14" y="200" width="56" height="52" rx="4"/><rect x="122" y="188" width="64" height="62" rx="4"/><rect x="78" y="228" width="36" height="58" rx="4"/><rect x="14" y="260" width="56" height="40" rx="4"/><rect x="122" y="258" width="64" height="42" rx="4"/></g><path d="M-4 246C46 232 92 268 204 214" stroke="#f6f4fb" stroke-width="7" fill="none"/><circle cx="154" cy="222" r="10" fill="#f6f4fb"/><circle cx="154" cy="222" r="4.5" fill="#f0a830"/>' },
+    istgah: { t: "ایستگاه<br>نارنج", a: "مهتاب سلیمی", bg: "#f3e9d6", fg: "#2c2457",
+      art: '<circle cx="128" cy="200" r="50" fill="#f0a830"/><path d="M128 150c6-14 20-20 34-17-5 13-19 19-34 17Z" fill="#2c2457"/><circle cx="52" cy="230" r="22" fill="#f0a830"/><path d="M0 266h200M0 284h200" stroke="#2c2457" stroke-width="4"/><path d="M16 260v30M46 260v30M76 260v30M106 260v30M136 260v30M166 260v30M196 260v30" stroke="#2c2457" stroke-width="4"/>' },
+    fanus: { t: "فانوس‌های<br>روی آب", a: "بهرام نوری", bg: "#3a306c", fg: "#e9e4f5",
+      art: '<g fill="#f0a830"><circle cx="36" cy="186" r="8"/><circle cx="78" cy="168" r="11"/><circle cx="122" cy="182" r="8"/><circle cx="164" cy="164" r="12"/></g><path d="M0 216c25-8 50 8 75 0s50-8 75 0 50 8 50 0" stroke="#d9d2ec" stroke-width="3" fill="none" opacity=".55"/><g stroke="#f0a830" stroke-width="5" stroke-linecap="round" opacity=".6"><path d="M36 236v8M36 256v4M78 234v14M78 260v6M122 236v8M122 256v4M164 232v16M164 260v8"/></g><path d="M0 284c25-8 50 8 75 0s50-8 75 0 50 8 50 0" stroke="#d9d2ec" stroke-width="3" fill="none" opacity=".35"/>' },
+    ayeneh: { t: "آینه‌های<br>شمالی", a: "سارا کیانی", bg: "#d9d2ec", fg: "#2c2457",
+      art: '<path d="M22 300V206a39 39 0 0 1 78 0v94Z" fill="#2c2457"/><path d="M112 302V206a39 39 0 0 1 78 0v96" fill="none" stroke="#2c2457" stroke-width="5"/><circle cx="61" cy="214" r="14" fill="#f0a830"/><circle cx="151" cy="214" r="12" fill="none" stroke="#f0a830" stroke-width="5"/>' },
+    nameh: { t: "نامه‌هایی<br>به تابستان", a: "رها مقدم", bg: "#fbf9fe", fg: "#2c2457",
+      art: '<circle cx="100" cy="318" r="100" fill="#f0a830"/><path d="M180 168H44M180 186H84M180 204H64" stroke="#2c2457" stroke-width="5" stroke-linecap="round"/><rect x="18" y="16" width="34" height="40" rx="3" fill="none" stroke="#f0a830" stroke-width="3" stroke-dasharray="4 3"/>' },
+    kooh: { t: "کوه‌های<br>کاغذی", a: "آرش نیک‌پور", bg: "#e9d9bb", fg: "#2c2457",
+      art: '<circle cx="152" cy="166" r="18" fill="#f0a830"/><path d="M0 300V252l56-82 36 52 30-38 78 94v22Z" fill="#2c2457"/><path d="M56 170 76 300H0v-48Z" fill="#5b4d9c"/><path d="M122 184 138 300h62v-22Z" fill="#a797d8" opacity=".45"/>' },
+    daftar: { t: "دفترچه‌ی<br>مه", a: "لیلا کرمانی", bg: "#7464b6", fg: "#f6f4fb",
+      art: '<g fill="#d9d2ec"><rect x="-20" y="162" width="150" height="16" rx="8" opacity=".35"/><rect x="60" y="190" width="170" height="16" rx="8" opacity=".55"/><rect x="0" y="218" width="140" height="16" rx="8" opacity=".75"/><rect x="40" y="246" width="180" height="16" rx="8" opacity=".45"/><rect x="-10" y="274" width="120" height="16" rx="8" opacity=".6"/></g><circle cx="152" cy="226" r="13" fill="#f0a830"/>' },
+  };
+
+  const TABS = [["i-books", "کتابخانه"], ["i-compass", "کشف"], ["i-pen", "یادداشت‌ها"], ["i-target", "پیشرفت"]];
+
+  // 1. stamp templates into screens (existing children stay after)
+  $$("[data-tpl]").forEach((el) => {
+    el.prepend(document.getElementById("tpl-" + el.dataset.tpl).content.cloneNode(true));
+    if (el.dataset.extra) el.append(document.getElementById("tpl-" + el.dataset.extra).content.cloneNode(true));
+  });
+  // 2. tab bars
+  $$(".tabbar[data-on]").forEach((n) => {
+    const on = +n.dataset.on;
+    n.innerHTML = TABS.map((t, i) => '<div class="tab' + (i === on ? " on" : "") + '"><span class="ti"><svg class="ic"><use href="#' + t[0] + '"/></svg></span>' + t[1] + "</div>").join("");
+  });
+  // 3. reader prose + page numbers
+  $$(".r-text").forEach((el) => {
+    const s = el.closest(".screen");
+    el.innerHTML = prose(s.dataset.mode || "plain");
+    const pg = s.querySelector(".r-pg");
+    if (pg) pg.textContent = "صفحه‌ی " + (s.dataset.page || "۴۲ از ۲۱۸");
+  });
+  // 4. covers
+  $$(".cv[data-b]").forEach((el) => {
+    const b = BOOKS[el.dataset.b];
+    el.style.setProperty("--cbg", b.bg);
+    el.style.setProperty("--cfg", b.fg);
+    el.innerHTML = '<svg class="cv-art" viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice">' + b.art + '</svg><div class="cv-t">' + b.t + '</div><div class="cv-a">' + b.a + "</div>";
+  });
+  // 5. device chrome
+  $$(".phone").forEach((p) => p.insertAdjacentHTML("afterbegin", '<div class="island"></div>'));
+  $$(".phone > .screen").forEach((s) => {
+    s.insertAdjacentHTML("afterbegin", '<div class="statusbar"><span>۹:۴۱</span><div class="sb-icons"><i></i><i></i><i></i></div></div>');
+    s.insertAdjacentHTML("beforeend", '<div class="home-indicator"></div>');
+  });
+  // 6. scale phones with CSS zoom (crisper than transform; offsets are given in board px)
+  $$(".phone[data-z]").forEach((p) => {
+    const z = +p.dataset.z;
+    p.style.zoom = z;
+    p.style.left = parseFloat(p.style.left) / z + "px";
+    p.style.top = parseFloat(p.style.top) / z + "px";
+  });
+
+  // 7. justification: per paragraph, pick the word-spacing whose line breaks give the
+  //    most even inter-word gaps once justified (no rivers, no stretched lines).
+  function rowsOf(p) {
+    const rows = [];
+    const tw = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+    const rg = document.createRange();
+    let n;
+    while ((n = tw.nextNode())) {
+      const re = /\S+/g;
+      let m;
+      while ((m = re.exec(n.data))) {
+        rg.setStart(n, m.index);
+        rg.setEnd(n, m.index + m[0].length);
+        const r = rg.getBoundingClientRect();
+        if (!r.width) continue;
+        let row = rows.find((o) => Math.abs(o.y - r.top) < 4);
+        if (!row) rows.push((row = { y: r.top, l: 1e9, r: -1e9, w: 0, c: 0 }));
+        row.l = Math.min(row.l, r.left);
+        row.r = Math.max(row.r, r.right);
+        row.w += r.width;
+        row.c++;
+      }
+    }
+    rows.sort((a, b) => a.y - b.y);
+    return rows;
+  }
+  function tune(p) {
+    p.style.textAlign = "start";
+    p.style.textAlignLast = "start";
+    p.style.wordSpacing = "0px";
+    const nat = rowsOf(p).filter((o) => o.c > 1).map((o) => (o.r - o.l - o.w) / (o.c - 1)).sort((a, b) => a - b);
+    const ideal = nat.length ? nat[nat.length >> 1] : 0;
+    const left = p.getBoundingClientRect().left;
+    let best = { ws: 0, s: Infinity };
+    for (let ws = -1.5; ws <= 2.51; ws += 0.25) {
+      p.style.wordSpacing = ws + "px";
+      const rows = rowsOf(p);
+      rows.pop();
+      let sc = 0;
+      rows.forEach((o) => {
+        const g = o.c > 1 ? (o.r - left - o.w) / (o.c - 1) : ideal * 6;
+        sc += (g - ideal) * (g - ideal);
+      });
+      if (sc < best.s - 0.01) best = { ws, s: sc };
+    }
+    p.style.wordSpacing = best.ws + "px";
+    p.dataset.ws = best.ws + "/" + best.s.toFixed(1) + "/" + ideal.toFixed(1);
+    p.style.textAlign = "";
+    p.style.textAlignLast = "";
+    return best.s;
+  }
+  // Reader pages: also try the left (line-end) margin within +-4px, moving the footer with it.
+  function tuneReader(txt) {
+    const scr = txt.closest(".screen");
+    if (!scr.getClientRects().length) return;
+    const body = scr.querySelector(".r-body");
+    const foot = scr.querySelector(".r-foot");
+    const ps = $$("p", txt);
+    const set = (pad) => { body.style.paddingLeft = pad + "px"; foot.style.left = pad + "px"; };
+    let best = { pad: 24, s: Infinity };
+    for (let pad = 20; pad <= 28; pad++) {
+      set(pad);
+      const sc = ps.reduce((acc, p) => acc + tune(p), 0);
+      if (sc < best.s - 0.01) best = { pad, s: sc };
+    }
+    set(best.pad);
+    ps.forEach(tune);
+    txt.dataset.pad = best.pad + "/" + best.s.toFixed(1);
+  }
+
+  document.fonts.ready.then(() => {
+    $$(".r-text").forEach(tuneReader);
+    $$(".bd-p").forEach(tune);
+    // 8. selection toolbar: sit over the two lines above the selection, caret on the selected line
+    $$(".tbar[data-anchor]").forEach((tb) => {
+      const scr = tb.closest(".screen");
+      const txt = scr.querySelector(".r-text");
+      const k = scr.getBoundingClientRect().width / scr.offsetWidth;
+      const lh = parseFloat(getComputedStyle(txt).lineHeight);
+      const a = scr.querySelector(".hd-s").getBoundingClientRect();
+      const t0 = (txt.getBoundingClientRect().top - scr.getBoundingClientRect().top) / k;
+      const line = Math.floor(((a.top - txt.getBoundingClientRect().top) / k + 4) / lh);
+      tb.style.top = Math.round(t0 + line * lh - 3 - tb.offsetHeight) + "px";
+    });
+  });
+})();
+</script>
+<script src="board.js"></script>
+</body>
+</html>
