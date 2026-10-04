@@ -16,6 +16,21 @@ export type ProjectTheme = {
   accent: string;
 };
 
+/** A numbered design note, e.g. "01 Visible attachments — Image previews sit inside the composer…". */
+export type Note = { title: Localized; body: Localized };
+
+/** One chapter of a case study: a screen or a group of screens and the decisions behind them. */
+export type Section = {
+  id: string;
+  kicker: Localized;
+  title: Localized;
+  lead?: Localized;
+  notes?: Note[];
+  figure: Figure;
+  /** Edge-to-edge figure (used for wide boards). */
+  full?: boolean;
+};
+
 export type Project = {
   slug: string;
   /** Concept projects are labelled as such everywhere and never presented as client work. */
@@ -29,10 +44,18 @@ export type Project = {
   cover: Img;
   /** Small overlapping image on the home slide; `rotate` is in degrees. */
   detail: Img & { rotate: number };
+  /** Facts shown in the case-study header. */
+  facts: {
+    platform: Localized;
+    screens?: number;
+    areas?: Localized<string[]>;
+  };
+  /** The project's main design focus, if there is one. */
+  focus?: Note;
   /** Every field is optional: only what exists is rendered. */
   meta: {
     role?: Localized<string[]>;
-    scope?: Localized<string[]>;
+    client?: Localized;
     year?: string;
     duration?: Localized;
     tools?: string[];
@@ -44,12 +67,13 @@ export type Project = {
     video?: { src: string; poster?: StaticImageData; caption?: Localized };
     prototype?: { url: string; title: Localized };
   };
-  problem: Localized;
-  goal: Localized;
-  constraints: Localized<string[]>;
-  decisions: { title: Localized; body: Localized; figure: Figure }[];
-  solution: { body: Localized; figure: Figure };
-  result: Localized;
+  /** Optional context, rendered as its own chapter when present. */
+  problem?: Localized;
+  goal?: Localized;
+  constraints?: Localized<string[]>;
+  sections: Section[];
+  /** Optional outcome, rendered as its own chapter when present. */
+  result?: Localized;
   learned?: Localized;
 };
 

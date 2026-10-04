@@ -212,3 +212,28 @@ body.render .board:not(.is-active) {
   font-size: 15px;
   font-weight: 600;
 }
+
+/* ---------- Real-screen presentation (portfolio projects) ---------- */
+.board[data-size="tall"] { width: 1600px; height: 1800px; }
+
+/* A screenshot card: full page strips, crops. */
+.shot {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 44px 80px -36px rgba(0, 0, 0, 0.42),
+    0 18px 30px -22px rgba(0, 0, 0, 0.28);
+}
+.shot > img { display: block; width: 100%; height: auto; }
+.shot.crop > img { height: 100%; object-fit: cover; object-position: top center; }
+
+/* Browser window holding a desktop screenshot. */
+.window > img.view { display: block; width: 100%; height: auto; }
+
+/* Phone holding a real 591×1280 screenshot (status bar is part of the image). */
+.phone.real { height: calc((var(--pw) - 22px) / 0.4617 + 22px); }
+.phone.real .island { top: 16px; width: 92px; height: 26px; }
+.phone .screen > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }

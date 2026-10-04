@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="kit.css">
+<style>
+  .aqua { background: #d4ecec; }
+  .blue { background: #2346b8; }
+  .paper { background: #eef4f5; }
+  .dot { position: absolute; border-radius: 50%; }
+  /* A slice of a tall page: the image is shifted up inside a fixed frame. */
+  .shot.slice > img { position: absolute; left: 0; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<!-- Gallery cover: three pages, top sections -->
+<section class="board aqua" id="cover" data-size="cover">
+  <div class="dot" style="left: 1180px; top: -140px; width: 520px; height: 520px; background: #bfe1e2;"></div>
+  <div class="dot" style="left: -120px; top: 640px; width: 460px; height: 460px; background: #c7e5e6;"></div>
+  <div class="shot crop" style="left: 160px; top: 150px; width: 400px; height: 700px;"><img src="../source/delta/landing.png" alt=""></div>
+  <div class="shot crop" style="left: 600px; top: 90px; width: 400px; height: 820px;"><img src="../source/delta/courses.png" alt=""></div>
+  <div class="shot crop" style="left: 1040px; top: 210px; width: 400px; height: 640px;"><img src="../source/delta/consultants.png" alt=""></div>
+</section>
+
+<section class="board blue" id="detail" data-size="detail">
+  <div class="shot crop" style="left: 120px; top: 100px; width: 640px; height: 900px; border-radius: 18px;"><img src="../source/delta/landing.png" alt=""></div>
+</section>
+
+<!-- Landing page shown whole, in three consecutive columns (405×2048 at 1.086×) -->
+<section class="board aqua" id="landing" data-size="cover">
+  <div class="shot slice" style="left: 80px; top: 129px; width: 440px; height: 742px;"><img src="../source/delta/landing.png" alt="" style="top: 0;"></div>
+  <div class="shot slice" style="left: 580px; top: 129px; width: 440px; height: 742px;"><img src="../source/delta/landing.png" alt="" style="top: -742px;"></div>
+  <div class="shot slice" style="left: 1080px; top: 129px; width: 440px; height: 742px;"><img src="../source/delta/landing.png" alt="" style="top: -1483px;"></div>
+</section>
+
+<!-- Course catalog + course page, full height -->
+<section class="board paper" id="courses" data-size="tall">
+  <div class="shot" style="left: 85px; top: 80px; width: 638px;"><img src="../source/delta/courses.png" alt=""></div>
+  <div class="shot" style="left: 803px; top: 80px; width: 711px;"><img src="../source/delta/course.png" alt=""></div>
+</section>
+
+<!-- Consultant directory + profile -->
+<section class="board aqua" id="consultants" data-size="tall">
+  <div class="shot" style="left: 147px; top: 80px; width: 730px;"><img src="../source/delta/consultants.png" alt=""></div>
+  <div class="shot" style="left: 957px; top: 80px; width: 456px;"><img src="../source/delta/consultant.png" alt=""></div>
+</section>
+
+<!-- Articles & podcasts list + single article -->
+<section class="board paper" id="editorial" data-size="tall">
+  <div class="shot" style="left: 222px; top: 80px; width: 456px;"><img src="../source/delta/blog-podcast.png" alt=""></div>
+  <div class="shot" style="left: 758px; top: 80px; width: 621px;"><img src="../source/delta/blog.png" alt=""></div>
+</section>
+
+<!-- Podcast / video player page -->
+<section class="board aqua" id="media" data-size="tall">
+  <div class="shot" style="left: 338px; top: 80px; width: 924px;"><img src="../source/delta/podcast.png" alt=""></div>
+</section>
+
+<!-- About page -->
+<section class="board paper" id="about" data-size="tall">
+  <div class="shot" style="left: 418px; top: 80px; width: 765px;"><img src="../source/delta/about.png" alt=""></div>
+</section>
+
+<script src="board.js"></script>
+</body>
+</html>

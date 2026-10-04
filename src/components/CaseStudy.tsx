@@ -3,14 +3,19 @@ import Link from "next/link";
 import { digits, indexLabel, localePath, type Locale } from "@/lib/i18n";
 import { getUI } from "@/content/ui";
 import { projects } from "@/content/projects";
-import type { Figure, Project } from "@/content/types";
+import type { Figure, Project, Section } from "@/content/types";
 import CaseHero from "./CaseHero";
 import Contact from "./Contact";
 import { ArrowForward, External } from "./icons";
 
-function Chapter({ title, children }: { title: string; children: React.ReactNode }) {
+function Chapter({ title, kicker, id, children }: { title: string; kicker?: string; id?: string; children: React.ReactNode }) {
   return (
-    <section className="chapter">
+    <section className="chapter" id={id}>
+      {kicker && (
+        <p className="label chapter__kicker" data-reveal>
+          {kicker}
+        </p>
+      )}
       <h2 className="chapter__title" data-reveal="mask">
         <span className="mask">
           <span className="mask__inner">{title}</span>
@@ -46,17 +51,48 @@ function Fig({ figure, locale, full = false }: { figure: Figure; locale: Locale;
   );
 }
 
+function SectionChapter({ section, locale }: { section: Section; locale: Locale }) {
+  return (
+    <Chapter title={section.title[locale]} kicker={section.kicker[locale]} id={`section-${section.id}`}>
+      {section.lead && (
+        <p className="chapter__lead" data-reveal>
+          {section.lead[locale]}
+        </p>
+      )}
+      {section.notes?.map((n, i) => (
+        <Row key={n.title.en} label={`${indexLabel(i + 1, locale)}  ${n.title[locale]}`}>
+          <p>{n.body[locale]}</p>
+        </Row>
+      ))}
+      <Fig figure={section.figure} locale={locale} full={section.full} />
+    </Chapter>
+  );
+}
+
+function List({ items, className = "plain-list" }: { items: string[]; className?: string }) {
+  return (
+    <ul className={className}>
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 export default function CaseStudy({ project, locale }: { project: Project; locale: Locale }) {
   const ui = getUI(locale);
   const t = ui.caseStudy;
   const index = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
-  const meta = project.meta;
+  const { meta, facts } = project;
 
   const metaItems: { label: string; value: React.ReactNode }[] = [];
-  if (project.concept) metaItems.push({ label: t.meta.type, value: ui.concept });
+  metaItems.push({ label: t.meta.type, value: project.concept ? `${project.category[locale]} · ${ui.concept}` : project.category[locale] });
+  metaItems.push({ label: t.meta.platform, value: facts.platform[locale] });
+  if (facts.screens) metaItems.push({ label: t.meta.screens, value: t.screensCount(indexLabel(facts.screens, locale)) });
+  if (facts.areas) metaItems.push({ label: t.meta.areas, value: <List items={facts.areas[locale]} /> });
   if (meta.role) metaItems.push({ label: t.meta.role, value: <List items={meta.role[locale]} /> });
-  if (meta.scope) metaItems.push({ label: t.meta.scope, value: <List items={meta.scope[locale]} /> });
+  if (meta.client) metaItems.push({ label: t.meta.client, value: meta.client[locale] });
   if (meta.year) metaItems.push({ label: t.meta.year, value: digits(meta.year, locale) });
   if (meta.duration) metaItems.push({ label: t.meta.duration, value: meta.duration[locale] });
   if (meta.tools?.length) metaItems.push({ label: t.meta.tools, value: <List items={meta.tools} /> });
@@ -69,10 +105,10 @@ export default function CaseStudy({ project, locale }: { project: Project; local
       label: t.meta.links,
       value: (
         <ul className="plain-list">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a className="link-line" href={l.href} target="_blank" rel="noopener noreferrer">
-                {l.label}
+          {links.map((link) => (
+            <li key={link.href}>
+              <a className="link-line" href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
                 <External />
               </a>
             </li>
@@ -80,6 +116,9 @@ export default function CaseStudy({ project, locale }: { project: Project; local
         </ul>
       ),
     });
+
+  const hasContext = project.problem || project.goal || project.constraints;
+  const hasOutcome = project.result || project.learned;
 
   const style = {
     "--paper": project.theme.paper,
@@ -115,6 +154,13 @@ export default function CaseStudy({ project, locale }: { project: Project; local
               </div>
             ))}
           </dl>
+          {project.focus && (
+            <div className="case__focus" data-reveal>
+              <p className="label">{t.focus}</p>
+              <p className="case__focus-title">{project.focus.title[locale]}</p>
+              <p>{project.focus.body[locale]}</p>
+            </div>
+          )}
           {project.concept && (
             <p className="case__note" data-reveal>
               {ui.conceptNote}
@@ -122,35 +168,29 @@ export default function CaseStudy({ project, locale }: { project: Project; local
           )}
         </section>
 
-        <Chapter title={t.chapters.context}>
-          <Row label={t.chapters.problem}>
-            <p>{project.problem[locale]}</p>
-          </Row>
-          <Row label={t.chapters.goal}>
-            <p>{project.goal[locale]}</p>
-          </Row>
-          <Row label={t.chapters.constraints}>
-            <List items={project.constraints[locale]} className="bullets" />
-          </Row>
-        </Chapter>
-
-        <Chapter title={t.chapters.decisions}>
-          {project.decisions.map((d, i) => (
-            <div className="decision" key={d.title[locale]}>
-              <Row label={`${digits(i + 1, locale)}. ${d.title[locale]}`}>
-                <p>{d.body[locale]}</p>
+        {hasContext && (
+          <Chapter title={t.chapters.context}>
+            {project.problem && (
+              <Row label={t.chapters.problem}>
+                <p>{project.problem[locale]}</p>
               </Row>
-              <Fig figure={d.figure} locale={locale} />
-            </div>
-          ))}
-        </Chapter>
+            )}
+            {project.goal && (
+              <Row label={t.chapters.goal}>
+                <p>{project.goal[locale]}</p>
+              </Row>
+            )}
+            {project.constraints && (
+              <Row label={t.chapters.constraints}>
+                <List items={project.constraints[locale]} className="bullets" />
+              </Row>
+            )}
+          </Chapter>
+        )}
 
-        <Chapter title={t.chapters.solution}>
-          <Row label={project.title[locale]}>
-            <p>{project.solution.body[locale]}</p>
-          </Row>
-          <Fig figure={project.solution.figure} locale={locale} full />
-        </Chapter>
+        {project.sections.map((section) => (
+          <SectionChapter key={section.id} section={section} locale={locale} />
+        ))}
 
         {project.media && (
           <Chapter title={t.chapters.media}>
@@ -184,16 +224,20 @@ export default function CaseStudy({ project, locale }: { project: Project; local
           </Chapter>
         )}
 
-        <Chapter title={t.chapters.outcome}>
-          <Row label={t.chapters.result}>
-            <p>{project.result[locale]}</p>
-          </Row>
-          {project.learned && (
-            <Row label={t.chapters.learned}>
-              <p>{project.learned[locale]}</p>
-            </Row>
-          )}
-        </Chapter>
+        {hasOutcome && (
+          <Chapter title={t.chapters.outcome}>
+            {project.result && (
+              <Row label={t.chapters.result}>
+                <p>{project.result[locale]}</p>
+              </Row>
+            )}
+            {project.learned && (
+              <Row label={t.chapters.learned}>
+                <p>{project.learned[locale]}</p>
+              </Row>
+            )}
+          </Chapter>
+        )}
 
         <Contact locale={locale} />
       </div>
@@ -235,15 +279,5 @@ export default function CaseStudy({ project, locale }: { project: Project; local
         </div>
       </section>
     </article>
-  );
-}
-
-function List({ items, className = "plain-list" }: { items: string[]; className?: string }) {
-  return (
-    <ul className={className}>
-      {items.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
   );
 }

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # design review renders (regenerable)
 /design/renders/
+
+# original screenshots (large; outputs in src/content/media are tracked)
+/design/source/

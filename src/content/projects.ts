@@ -1,433 +1,966 @@
 /**
  * Projects shown on the home gallery and as case studies at /[locale]/work/[slug].
- * Order here = order on the site. Swap these four concept projects for real work by
- * editing this file; images live in ./media/<slug>/ (rendered from design/mockups).
+ * Order here = order on the site. Text follows the portfolio document (UI_Design_Portfolio_EN);
+ * images are rendered from design/mockups/<slug>.html into ./media/<slug>/.
+ *
+ * Role, client, year and tools are not in the source document, so they are left out;
+ * add them under `meta` and they appear in the case-study header.
  */
-import type { Project } from "./types";
+import type { StaticImageData } from "next/image";
+import type { Localized } from "@/lib/i18n";
+import type { Figure, Note, Project } from "./types";
 
-import navaCover from "./media/nava/cover.webp";
-import navaDetail from "./media/nava/detail.webp";
-import navaD1 from "./media/nava/d1.webp";
-import navaD2 from "./media/nava/d2.webp";
-import navaWide from "./media/nava/wide.webp";
+import mauCover from "./media/mau/cover.webp";
+import mauDetail from "./media/mau/detail.webp";
+import mauStart from "./media/mau/start.webp";
+import mauAccess from "./media/mau/access.webp";
+import mauInput from "./media/mau/input.webp";
+import mauResponse from "./media/mau/response.webp";
 
-import daftarCover from "./media/daftar/cover.webp";
-import daftarDetail from "./media/daftar/detail.webp";
-import daftarD1 from "./media/daftar/d1.webp";
-import daftarD2 from "./media/daftar/d2.webp";
-import daftarWide from "./media/daftar/wide.webp";
+import deltaCover from "./media/delta/cover.webp";
+import deltaDetail from "./media/delta/detail.webp";
+import deltaLanding from "./media/delta/landing.webp";
+import deltaCourses from "./media/delta/courses.webp";
+import deltaConsultants from "./media/delta/consultants.webp";
+import deltaEditorial from "./media/delta/editorial.webp";
+import deltaMedia from "./media/delta/media.webp";
+import deltaAbout from "./media/delta/about.webp";
 
-import karvanCover from "./media/karvan/cover.webp";
-import karvanDetail from "./media/karvan/detail.webp";
-import karvanD1 from "./media/karvan/d1.webp";
-import karvanD2 from "./media/karvan/d2.webp";
-import karvanWide from "./media/karvan/wide.webp";
+import eyeCover from "./media/extraeye/cover.webp";
+import eyeDetail from "./media/extraeye/detail.webp";
+import eyeThemes from "./media/extraeye/themes.webp";
+import eyeResponsive from "./media/extraeye/responsive.webp";
+import eyePlans from "./media/extraeye/plans.webp";
 
-import bargCover from "./media/barg/cover.webp";
-import bargDetail from "./media/barg/detail.webp";
-import bargD1 from "./media/barg/d1.webp";
-import bargD2 from "./media/barg/d2.webp";
-import bargWide from "./media/barg/wide.webp";
+import bonbanCover from "./media/bonban/cover.webp";
+import bonbanDetail from "./media/bonban/detail.webp";
+import bonbanIntro from "./media/bonban/intro.webp";
+import bonbanAdvice from "./media/bonban/advice.webp";
+import bonbanProgress from "./media/bonban/progress.webp";
 
-const conceptResult = (fa: string, en: string) => ({
-  fa: `این یک پروژه مفهومی است و هنوز با کاربر واقعی آزمایش نشده؛ بنابراین نتیجه‌ی عددی ندارد. ${fa}`,
-  en: `This is a concept project and has not been tested with real users yet, so there are no results to report. ${en}`,
-});
+import jewelryCover from "./media/jewelry/cover.webp";
+import jewelryDetail from "./media/jewelry/detail.webp";
+import jewelryDiscovery from "./media/jewelry/discovery.webp";
+import jewelryEditorial from "./media/jewelry/editorial.webp";
+
+import banziCover from "./media/banzi/cover.webp";
+import banziDetail from "./media/banzi/detail.webp";
+import banziIntro from "./media/banzi/intro.webp";
+import banziIdentity from "./media/banzi/identity.webp";
+import banziTask from "./media/banzi/task.webp";
+import banziCapture from "./media/banzi/capture.webp";
+
+const l = (fa: string, en: string): Localized => ({ fa, en });
+const note = (title: Localized, body: Localized): Note => ({ title, body });
+const fig = (src: StaticImageData, alt: Localized, caption?: Localized): Figure => ({ src, alt, caption });
+
+const mobileUI = l("رابط موبایل", "Mobile interface");
 
 export const projects: Project[] = [
+  /* ------------------------------------------------------------------ 01 */
   {
-    slug: "nava",
-    concept: true,
-    title: { fa: "نوا", en: "Nava" },
-    category: { fa: "اپلیکیشن موبایل · طراحی محصول", en: "Mobile app · Product design" },
-    oneLiner: {
-      fa: "اپلیکیشن موسیقی و پادکستی که از روز اول برای شنونده‌ی فارسی‌زبان و راست‌به‌چپ طراحی شده.",
-      en: "A music and podcast app designed from day one for Persian, right-to-left listening.",
-    },
-    summary: {
-      fa: "بیشتر اپلیکیشن‌های پخش، فارسی را بعداً به خودشان اضافه کرده‌اند. نوا سؤال را برعکس می‌پرسد: اگر شنیدن از اول راست‌به‌چپ طراحی شود، چه شکلی پیدا می‌کند؟",
-      en: "Most streaming apps bolt Persian on later. Nava asks the opposite question: what does listening look like when it is designed right-to-left from the start?",
-    },
+    slug: "mau",
+    concept: false,
+    title: l("MAU", "MAU"),
+    category: l("وب‌اپلیکیشن · رابط گفت‌وگومحور", "Web app · Conversational UI"),
+    oneLiner: l(
+      "رابطی گفت‌وگومحور برای ارزیابی بناهای تاریخی.",
+      "A conversation-led heritage assessment interface.",
+    ),
+    summary: l(
+      "یک فضای کاری دسکتاپ که تصاویر بنا، اسناد و کاربری‌های پیشنهادی را در یک گفت‌وگو کنار هم می‌آورد.",
+      "A desktop workspace that brings building images, documents and proposed uses into a single conversation.",
+    ),
     theme: {
-      bg: "#22384a",
-      title: "#d9e6e3",
-      text: "#f4f8f7",
-      heroBg: "#d4e2de",
-      heroText: "#1d3142",
-      paper: "#f3f6f5",
-      paperText: "#1d3142",
-      accent: "#d8603f",
+      bg: "#133a2f",
+      title: "#efe3c8",
+      text: "#f3eee2",
+      heroBg: "#efe7d6",
+      heroText: "#133a2f",
+      paper: "#f7f3ea",
+      paperText: "#1b2a24",
+      accent: "#b9873c",
     },
     cover: {
-      src: navaCover,
-      alt: {
-        fa: "سه صفحه از اپلیکیشن نوا: خانه، صفحه‌ی پخش و جست‌وجو",
-        en: "Three Nava screens: home, now playing and search",
-      },
+      src: mauCover,
+      alt: l(
+        "دو صفحه‌ی دسکتاپ MAU: شروع گفت‌وگو و پاسخ ارزیابی با جدول اولویت",
+        "Two MAU desktop screens: an empty conversation and an assessment response with a priority table",
+      ),
     },
-    detail: {
-      src: navaDetail,
-      rotate: -4,
-      alt: { fa: "صفحه‌ی پخش نوا", en: "Nava’s now-playing screen" },
+    detail: { src: mauDetail, rotate: -4, alt: l("صفحه‌ی ورود MAU", "MAU sign-in screen") },
+    facts: {
+      platform: l("دسکتاپ · راست‌به‌چپ", "Desktop · RTL"),
+      screens: 5,
+      areas: { fa: ["رابط گفت‌وگومحور", "راست‌به‌چپ"], en: ["Conversational UI", "RTL"] },
     },
-    meta: {
-      scope: {
-        fa: ["تحقیق اولیه", "طراحی تجربه کاربری", "طراحی رابط کاربری", "سیستم کامپوننت"],
-        en: ["Early research", "UX design", "UI design", "Component system"],
-      },
-    },
-    problem: {
-      fa: "شنونده‌ی فارسی‌زبان هر روز با رابط‌هایی کار می‌کند که برای چپ‌به‌راست ساخته شده‌اند: نوار پیشرفت از سمت اشتباه پر می‌شود، فلش‌ها برعکس‌اند و عنوان فارسی کنار متن لاتین به‌هم می‌ریزد.",
-      en: "Persian listeners use interfaces built for left-to-right every day: progress bars fill from the wrong side, arrows point backwards and Persian titles break next to Latin text.",
-    },
-    goal: {
-      fa: "طراحی تجربه‌ی پخشی که در آن جهت، تایپوگرافی و اعداد فارسی بخشی از سیستم باشند، نه وصله‌ای که بعداً اضافه شود.",
-      en: "Design a playback experience where direction, typography and Persian numerals are part of the system rather than a later patch.",
-    },
-    constraints: {
-      fa: ["استفاده با یک دست روی گوشی‌های بزرگ", "عنوان‌های دوزبانه در یک فهرست", "اینترنت ناپایدار و نیاز به پخش آفلاین"],
-      en: ["One-handed use on large phones", "Bilingual titles in the same list", "Unstable connections and offline playback"],
-    },
-    decisions: [
+    focus: note(
+      l("از ورودی تا بینش", "From input to insight"),
+      l(
+        "یک درخواست اولیه‌ی روشن، پیوست‌های قابل‌دیدن و پاسخ ارزیابی ساخت‌یافته.",
+        "A clear first prompt, visible attachments and a structured assessment response.",
+      ),
+    ),
+    meta: {},
+    sections: [
       {
-        title: { fa: "کنترل‌ها در دسترس شست", en: "Controls within thumb reach" },
-        body: {
-          fa: "دکمه‌های اصلی پخش به نیمه‌ی پایین صفحه آمدند و مینی‌پلیر سه حالت گرفت تا بدون جابه‌جا کردن گوشی بشود قطعه را عوض کرد.",
-          en: "The main playback controls moved to the lower half of the screen, and the mini player gained three states so you can change tracks without shifting your grip.",
-        },
-        figure: {
-          src: navaD1,
-          alt: { fa: "صفحه‌ی پخش و حالت‌های مینی‌پلیر با محدوده‌ی دسترسی شست", en: "Now playing and mini-player states with the thumb zone marked" },
-          caption: { fa: "حالت‌های مینی‌پلیر و محدوده‌ی دسترسی شست", en: "Mini-player states and the thumb zone" },
-        },
+        id: "start",
+        kicker: l("شروع / گفت‌وگوی خالی", "Start / Empty conversation"),
+        title: l("شروع از یک گفت‌وگوی خالی", "Starting from an empty conversation"),
+        figure: fig(
+          mauStart,
+          l("صفحه‌ی شروع MAU با کادر نوشتن و پیشنهادهای آماده", "MAU start screen with the composer and suggested prompts"),
+          l("شروع / گفت‌وگوی خالی", "Start / empty conversation"),
+        ),
       },
       {
-        title: { fa: "کامپوننت‌هایی که جهت را می‌فهمند", en: "Components that understand direction" },
-        body: {
-          fa: "نوار پیشرفت، اسلایدر صدا و فهرست فصل‌های پادکست از راست شروع می‌شوند. آیکون‌های جهت‌دار با زبان آینه می‌شوند و بقیه ثابت می‌مانند.",
-          en: "The progress bar, volume slider and podcast chapters start from the right. Directional icons mirror with the language; the rest stay put.",
-        },
-        figure: {
-          src: navaD2,
-          alt: { fa: "برگه‌ی کامپوننت‌های راست‌به‌چپ نوا", en: "Sheet of Nava’s right-to-left components" },
-          caption: { fa: "بخشی از برگه‌ی کامپوننت‌ها", en: "Part of the component sheet" },
-        },
+        id: "access",
+        kicker: l("دسترسی به حساب", "Account access"),
+        title: l("اولین برداشتی یکدست", "A consistent first impression"),
+        lead: l(
+          "ورود و ثبت‌نام با یک چیدمان دوبخشی مشترک، به یک هویت بصری واحد وصل می‌شوند.",
+          "A shared split layout connects sign-in and registration through the same visual identity.",
+        ),
+        notes: [
+          note(
+            l("ورود", "Sign in"),
+            l(
+              "پنل فرمِ ساده و کم‌حاشیه، ورود به حساب را از سطح فضاسازِ برند جدا نگه می‌دارد.",
+              "A restrained form panel keeps account access visually separate from the atmospheric brand surface.",
+            ),
+          ),
+          note(
+            l("ساخت حساب", "Create account"),
+            l(
+              "همان ترکیب در ثبت‌نام ادامه پیدا می‌کند؛ با ترازبندی آشنای فیلدها و جای ثابت دکمه‌ها.",
+              "The same composition carries into registration, with familiar field alignment and action placement.",
+            ),
+          ),
+        ],
+        figure: fig(
+          mauAccess,
+          l("صفحه‌های ورود و ساخت حساب MAU کنار هم", "MAU sign-in and create-account screens side by side"),
+          l("ورود · ساخت حساب", "Sign in · Create account"),
+        ),
+        full: true,
+      },
+      {
+        id: "input",
+        kicker: l("گفت‌وگو / ورودی", "Conversation / Input"),
+        title: l("به گفت‌وگو زمینه بدهید", "Give the conversation context"),
+        notes: [
+          note(
+            l("پیوست‌های قابل‌دیدن", "Visible attachments"),
+            l(
+              "پیش‌نمایش تصاویر داخل کادر نوشتن و کنار درخواست کاربر می‌نشیند.",
+              "Image previews sit inside the composer alongside the user’s request.",
+            ),
+          ),
+          note(
+            l("فضای کاری پایدار", "A persistent workspace"),
+            l(
+              "نوار کناری سمت راست، گفت‌وگوهای فعلی و قبلی را همیشه در دید نگه می‌دارد.",
+              "The right-hand sidebar keeps current and previous conversations within view.",
+            ),
+          ),
+        ],
+        figure: fig(
+          mauInput,
+          l("کادر نوشتن MAU با تصاویر پیوست‌شده", "MAU composer with attached images"),
+          l("کادر نوشتن / حالت پیوست", "Message composer / attachment state"),
+        ),
+      },
+      {
+        id: "response",
+        kicker: l("گفت‌وگو / پاسخ", "Conversation / Response"),
+        title: l("ارزیابی را قابل‌مرور کنید", "Make the assessment scannable"),
+        notes: [
+          note(
+            l("شواهد در دید می‌مانند", "Evidence stays visible"),
+            l(
+              "تصاویر و اسناد بارگذاری‌شده به همان درخواستی که با آن فرستاده شده‌اند، متصل می‌مانند.",
+              "Uploaded images and documents remain attached to the originating request.",
+            ),
+          ),
+          note(
+            l("پیشنهادهای رتبه‌بندی‌شده", "Ranked recommendations"),
+            l(
+              "یک جدول، هر کاربری پیشنهادی را با اولویت و توضیحی کوتاه کنار هم می‌گذارد.",
+              "A table pairs each suggested use with its priority and a concise explanation.",
+            ),
+          ),
+          note(
+            l("ادامه در همان‌جا", "Continue in place"),
+            l("کادر سؤال بعدی درست زیر پاسخ قرار می‌گیرد.", "A follow-up composer sits directly below the response."),
+          ),
+        ],
+        figure: fig(
+          mauResponse,
+          l("پاسخ ارزیابی MAU با جدول اولویت کاربری‌ها", "MAU assessment response with a ranked table of uses"),
+          l("پاسخ ارزیابی / جدول اولویت", "Assessment response / priority table"),
+        ),
       },
     ],
-    solution: {
-      body: {
-        fa: "نتیجه، یک جریان پنج‌صفحه‌ای است: انتخاب سلیقه، خانه، جست‌وجو، پلی‌لیست و صفحه‌ی پخش؛ همه روی یک سیستم رنگ و تایپوگرافی مشترک.",
-        en: "The result is a five-screen flow — taste picker, home, search, playlist and now playing — on one shared colour and type system.",
-      },
-      figure: {
-        src: navaWide,
-        alt: { fa: "پنج صفحه‌ی اصلی نوا کنار هم", en: "Nava’s five main screens side by side" },
-        caption: { fa: "جریان اصلی، از شروع تا پخش", en: "The main flow, from onboarding to playback" },
-      },
-    },
-    result: conceptResult(
-      "قدم بعدی، تست کاربردپذیری با پنج شنونده و مقایسه‌ی زمان انجام کارهای اصلی با یک اپلیکیشن رایج است.",
-      "The next step is a usability test with five listeners, comparing task time against a popular app.",
-    ),
-    learned: {
-      fa: "راست‌به‌چپ فقط آینه کردن صفحه نیست؛ باید برای هر کامپوننت جداگانه تصمیم گرفت که جهتش معنا دارد یا نه.",
-      en: "Right-to-left is not just mirroring the screen; each component needs its own decision about whether its direction carries meaning.",
-    },
   },
+
+  /* ------------------------------------------------------------------ 02 */
   {
-    slug: "daftar",
-    concept: true,
-    title: { fa: "دفتر", en: "Daftar" },
-    category: { fa: "وب‌اپلیکیشن · داشبورد مالی", en: "Web app · Finance dashboard" },
-    oneLiner: {
-      fa: "فاکتور، دریافت و گزارش مالیاتی برای فریلنسرها، در یک دفتر ساده و آرام.",
-      en: "Invoices, payments and tax-ready reports for freelancers, in one calm ledger.",
-    },
-    summary: {
-      fa: "فریلنسرها معمولاً حساب‌وکتاب را بین صفحه‌گسترده، پیام‌رسان و حافظه پخش می‌کنند. دفتر تلاش می‌کند همه‌ی این‌ها را به یک مرور هفتگی کوتاه تبدیل کند.",
-      en: "Freelancers usually spread their bookkeeping across spreadsheets, chat apps and memory. Daftar tries to turn it all into one short weekly review.",
-    },
+    slug: "delta-konkur",
+    concept: false,
+    title: l("دلتا کنکور", "Delta Konkur"),
+    category: l("وب‌سایت · پلتفرم آموزشی", "Website · Education platform"),
+    oneLiner: l(
+      "پلتفرمی آموزشی با چند مسیر برای کشف دوره، مشاور و محتوا.",
+      "An education platform with multiple paths to discovery.",
+    ),
+    summary: l(
+      "مرور دوره‌ها، پروفایل مشاوران و رسانه‌های آموزشی، یک زبان بصری بازیگوش و ساختار صفحه‌ی یکدست دارند.",
+      "Course browsing, consultant profiles and educational media share a playful visual language and a consistent page structure.",
+    ),
     theme: {
-      bg: "#efece4",
-      title: "#1f5d4c",
-      text: "#26302c",
-      heroBg: "#1f5d4c",
-      heroText: "#f4f1e8",
-      paper: "#f7f5ef",
-      paperText: "#1e2622",
-      accent: "#b9822a",
+      bg: "#d4ecec",
+      title: "#2346b8",
+      text: "#17234a",
+      heroBg: "#2346b8",
+      heroText: "#eaf4f4",
+      paper: "#f2f6f8",
+      paperText: "#17234a",
+      accent: "#e07a1f",
     },
     cover: {
-      src: daftarCover,
-      alt: {
-        fa: "داشبورد دسکتاپ دفتر همراه با نسخه‌ی موبایل برای ثبت هزینه",
-        en: "Daftar’s desktop dashboard with the mobile expense capture",
+      src: deltaCover,
+      alt: l(
+        "سه صفحه از دلتا کنکور: صفحه‌ی اصلی، کاتالوگ دوره‌ها و فهرست مشاوران",
+        "Three Delta Konkur pages: the landing page, course catalog and consultant directory",
+      ),
+    },
+    detail: { src: deltaDetail, rotate: 3, alt: l("بخش آغازین صفحه‌ی اصلی دلتا کنکور", "Top of the Delta Konkur landing page") },
+    facts: {
+      platform: l("وب · دسکتاپ", "Web · Desktop"),
+      screens: 9,
+      areas: {
+        fa: ["کشف", "دوره‌ها", "مشاوران", "مقالات", "پادکست‌ها", "درباره ما"],
+        en: ["Discovery", "Courses", "Consultants", "Articles", "Podcasts", "About"],
       },
     },
-    detail: {
-      src: daftarDetail,
-      rotate: 3,
-      alt: { fa: "جزئیات فاکتور و لینک پرداخت در موبایل", en: "Invoice detail and payment link on mobile" },
-    },
-    meta: {
-      scope: {
-        fa: ["طراحی تجربه کاربری", "طراحی داشبورد", "نسخه‌ی موبایل", "مصورسازی داده"],
-        en: ["UX design", "Dashboard design", "Mobile companion", "Data visualisation"],
-      },
-    },
-    problem: {
-      fa: "پیگیری فاکتورهای معوق، جدا کردن هزینه‌های کاری از شخصی و آماده کردن اطلاعات مالیاتی، کارهایی هستند که فریلنسرها تا آخرین لحظه عقب می‌اندازند.",
-      en: "Chasing overdue invoices, separating work and personal expenses and preparing tax figures are the jobs freelancers postpone until the last minute.",
-    },
-    goal: {
-      fa: "فضایی که وضعیت مالی را در یک نگاه نشان دهد و ساخت و ارسال فاکتور را به چند قدم کوتاه برساند.",
-      en: "A workspace that shows the financial picture at a glance and reduces creating and sending an invoice to a few short steps.",
-    },
-    constraints: {
-      fa: ["تاریخ شمسی و مبلغ به تومان", "کاربرانی که حسابدار نیستند", "استفاده هم روی دسکتاپ و هم روی موبایل"],
-      en: ["Jalali dates and amounts in Toman", "Users who are not accountants", "Use on both desktop and mobile"],
-    },
-    decisions: [
+    meta: {},
+    sections: [
       {
-        title: { fa: "فاکتور با پیش‌نمایش زنده", en: "Invoices with a live preview" },
-        body: {
-          fa: "فرم و نسخه‌ی چاپی کنار هم دیده می‌شوند؛ هر تغییری بلافاصله در فاکتور نهایی پیداست و جایی برای حدس زدن نمی‌ماند.",
-          en: "The form and the printed version sit side by side; every change shows up in the final invoice immediately, leaving nothing to guess.",
-        },
-        figure: {
-          src: daftarD1,
-          alt: { fa: "فرم ساخت فاکتور کنار پیش‌نمایش چاپی", en: "Invoice form next to its print preview" },
-          caption: { fa: "فرم فاکتور و پیش‌نمایش هم‌زمان", en: "Invoice form and live preview" },
-        },
+        id: "landing",
+        kicker: l("پلتفرم آموزشی", "Education platform"),
+        title: l("دروازه‌ای به پلتفرم یادگیری", "A gateway to the learning platform"),
+        lead: l(
+          "صفحه‌ی اصلی، پلتفرم را با بخش‌های جداگانه برای آدم‌ها، محتوا و دوره‌هایش معرفی می‌کند.",
+          "The landing page introduces the platform through distinct sections for its people, content and courses.",
+        ),
+        notes: [
+          note(
+            l("کشف لایه‌لایه", "Layered discovery"),
+            l(
+              "بخش آغازین و میان‌برهای دسته‌بندی، کاربر را به مشاوران و محتوای آموزشی می‌رسانند.",
+              "A hero and category shortcuts lead into consultants and editorial content.",
+            ),
+          ),
+          note(
+            l("ریتم مشترک", "Shared rhythm"),
+            l(
+              "کارت‌های گرد، جزئیات تصویرسازی‌شده و سطوح پاستلی در همه‌ی بخش‌ها تکرار می‌شوند.",
+              "Rounded cards, illustrated details and pastel surfaces recur across sections.",
+            ),
+          ),
+          note(
+            l("قدم بعدی روشن", "Clear next steps"),
+            l("بخش‌های مشاوره و تماس در ادامه‌ی صفحه می‌آیند.", "Consultation and contact areas appear further down the page."),
+          ),
+        ],
+        figure: fig(
+          deltaLanding,
+          l("صفحه‌ی اصلی کامل دلتا کنکور در سه ستون", "The full Delta Konkur landing page in three columns"),
+          l("صفحه‌ی کامل / توالی آغازین", "Full page / opening sequence"),
+        ),
       },
       {
-        title: { fa: "گزارشی که فریلنسر می‌فهمد", en: "Reports a freelancer understands" },
-        body: {
-          fa: "به‌جای جدول‌های حسابداری، چند کارت ساده: درآمد در برابر هزینه، دسته‌بندی‌ها، تخمین مالیات و یادآوری فاکتورهای معوق.",
-          en: "Instead of accounting tables, a few simple cards: income against expenses, categories, a tax estimate and overdue-invoice reminders.",
-        },
-        figure: {
-          src: daftarD2,
-          alt: { fa: "کارت‌های گزارش ماهانه‌ی دفتر", en: "Daftar’s monthly report cards" },
-          caption: { fa: "کارت‌های گزارش ماهانه", en: "Monthly report cards" },
-        },
+        id: "courses",
+        kicker: l("پلتفرم آموزشی", "Education platform"),
+        title: l("مرور کتابخانه‌ی دوره‌ها", "Browse a course library"),
+        lead: l(
+          "یک بخش دسته‌بندی تصویرسازی‌شده، فهرستی تکرارشونده از کارت‌های دوره را معرفی می‌کند. صفحه‌ی هر دوره هم معرفی، اطلاعات مدرس و سرفصل‌های بازشونده را کنار هم می‌آورد.",
+          "An illustrated category area introduces a repeatable catalog of course cards. A dedicated course page combines an introduction, instructor information and expandable lesson content.",
+        ),
+        notes: [
+          note(
+            l("پیدا کردن مسیر", "Find a direction"),
+            l("دسته‌بندی‌ها، فیلترها و جست‌وجو قاب کاتالوگ را می‌سازند.", "Categories, filter controls and search frame the catalog."),
+          ),
+          note(
+            l("مقایسه در یک نگاه", "Compare at a glance"),
+            l(
+              "ساختار تکراری کارت‌ها به هر دوره جای آشنایی در شبکه می‌دهد.",
+              "A repeated card structure gives each course a familiar place in the grid.",
+            ),
+          ),
+          note(
+            l("زمینه کنار محتوا", "Context beside content"),
+            l("پنل مدرس کنار اطلاعات اصلی دوره قرار می‌گیرد.", "An instructor panel sits alongside the main course information."),
+          ),
+          note(
+            l("گزینه‌های مرتبط", "Related options"),
+            l(
+              "ردیفی از دوره‌های مرتبط، کشف را تا انتهای صفحه ادامه می‌دهد.",
+              "A supporting course row extends discovery near the end of the page.",
+            ),
+          ),
+        ],
+        figure: fig(
+          deltaCourses,
+          l("کاتالوگ دوره‌ها و صفحه‌ی یک دوره", "The course catalog and a course page"),
+          l("کاتالوگ · اطلاعات و سرفصل‌ها", "Catalog · Information & curriculum"),
+        ),
+      },
+      {
+        id: "consultants",
+        kicker: l("پلتفرم آموزشی", "Education platform"),
+        title: l("پیدا کردن مشاور", "Find a consultant"),
+        lead: l(
+          "فهرستی آدم‌محور با کارت‌های پرتره‌ی تکرارشونده در یک لیست قابل‌فیلتر. صفحه‌ی پروفایل هر کارت را به معرفی کامل‌تر و مسیری برای مشاوره تبدیل می‌کند.",
+          "A people-focused directory uses repeated portrait cards within a filterable listing. A profile page expands a card into a fuller introduction and a path to consultation.",
+        ),
+        notes: [
+          note(
+            l("اول آدم‌ها", "People first"),
+            l(
+              "بخش معرفی و کارت‌های پرتره، مشاوران را در مرکز توجه می‌گذارند.",
+              "The introductory section and portrait cards make consultants the focus.",
+            ),
+          ),
+          note(
+            l("ظرفی متمایز", "A distinct container"),
+            l(
+              "سطحی با الهام از دفترچه، جست‌وجو، فیلترها و نتایج را کنار هم جمع می‌کند.",
+              "A notebook-inspired surface groups search, filters and results.",
+            ),
+          ),
+          note(
+            l("معرفی شخصی", "Personal introduction"),
+            l("بنر، پرتره و بیوگرافی، سلسله‌مراتب پروفایل را می‌سازند.", "A banner, portrait and biography establish the profile hierarchy."),
+          ),
+          note(
+            l("کشف پیوسته", "Connected discovery"),
+            l(
+              "کارت‌های مشاوران مرتبط، پروفایل را دوباره به کل تیم وصل می‌کنند.",
+              "Related consultant cards connect the profile back to the wider team.",
+            ),
+          ),
+        ],
+        figure: fig(
+          deltaConsultants,
+          l("فهرست مشاوران و صفحه‌ی پروفایل یک مشاور", "The consultant directory and a consultant profile"),
+          l("فهرست مشاوران · پروفایل", "Directory · Profile"),
+        ),
+      },
+      {
+        id: "editorial",
+        kicker: l("محتوا / کشف", "Editorial / Discovery"),
+        title: l("خانه‌ای برای محتوای آموزشی", "A home for learning content"),
+        lead: l(
+          "مقاله‌ها و پادکست‌ها بخش‌های جداگانه‌ای در یک مقصد محتوایی مشترک دارند. صفحه‌ی مقاله، متن بلند را زیر یک معرفی تصویری برجسته و در سطحی متمرکز برای خواندن قرار می‌دهد.",
+          "Articles and podcasts occupy separate sections within a shared editorial destination. A single-article view places a long-form text panel beneath a prominent visual introduction.",
+        ),
+        notes: [
+          note(
+            l("شبکه‌ی مقالات", "Article grid"),
+            l(
+              "کارت‌های تصویری مقالات در یک شبکه‌ی منظم می‌آیند و فیلترها و صفحه‌بندی قاب مجموعه‌اند.",
+              "Image-led article cards use a regular grid, with filters and pagination framing the collection.",
+            ),
+          ),
+          note(
+            l("فهرست پادکست", "Podcast list"),
+            l(
+              "ردیف‌های فشرده‌ی پادکست الگوی متمایزی می‌سازند و همان زبان جست‌وجو و فیلتر را حفظ می‌کنند.",
+              "Compact podcast rows create a distinct pattern while retaining the same search and filter language.",
+            ),
+          ),
+          note(
+            l("پنل متن جدا", "A contained text panel"),
+            l(
+              "یک سطح سفید با گوشه‌های گرد، مقاله را از بقیه‌ی صفحه جدا می‌کند.",
+              "A rounded white surface separates the article from the surrounding page.",
+            ),
+          ),
+        ],
+        figure: fig(
+          deltaEditorial,
+          l("فهرست مقالات و پادکست‌ها و صفحه‌ی یک مقاله", "The article and podcast listing and a single article"),
+          l("مقالات و پادکست‌ها · صفحه‌ی مقاله", "Articles & podcasts · Article page"),
+        ),
+      },
+      {
+        id: "media",
+        kicker: l("رسانه / پادکست", "Media / Podcast"),
+        title: l("اول تماشا", "Watch first"),
+        lead: l(
+          "صفحه‌ای رسانه‌محور که پخش‌کننده، توضیحات و موارد مرتبط را در یک مقصد جمع می‌کند.",
+          "A media-led page brings the player, descriptive content and related items into one destination.",
+        ),
+        notes: [
+          note(
+            l("رسانه در مرکز", "Media takes the lead"),
+            l(
+              "پخش‌کننده‌ی بزرگ نقطه‌ی تمرکز اصلی است و زیر آن، پنلی توضیحات را کنار فهرست رسانه‌های مرتبط می‌گذارد.",
+              "A large player creates the primary focal point. Below it, a supporting panel pairs descriptive text with a list of related media.",
+            ),
+          ),
+        ],
+        figure: fig(
+          deltaMedia,
+          l("صفحه‌ی پخش پادکست و ویدئو در دلتا کنکور", "The Delta Konkur podcast and video player page"),
+          l("صفحه‌ی کامل / پخش‌کننده", "Full page / player detail"),
+        ),
+      },
+      {
+        id: "about",
+        kicker: l("درباره / داستان برند", "About / Brand story"),
+        title: l("هویتی مشترک در سراسر سایت", "A shared identity across the site"),
+        lead: l(
+          "صفحه‌ی درباره‌ی ما همان زبان بصری را به داستان پلتفرم، تصاویر تیم و فرم تماس می‌برد.",
+          "The about page extends the same visual language into the platform story, team imagery and a contact form.",
+        ),
+        notes: [
+          note(
+            l("نشانه‌های آشنا", "Recognizable motifs"),
+            l(
+              "گرادیان‌های نرم، سطوح گرد و جزئیات دفترچه‌ای این صفحه را به کاتالوگ و فهرست مشاوران وصل می‌کنند.",
+              "Soft gradients, rounded surfaces and notebook details connect this page to the catalog and directory.",
+            ),
+          ),
+          note(
+            l("حضور انسانی", "A human presence"),
+            l(
+              "عکس‌های تیم، معرفی را محکم می‌کند و پیوستگی با صفحه‌های مشاوران را بیشتر می‌کند.",
+              "Team photography anchors the introduction and adds continuity with the consultant pages.",
+            ),
+          ),
+        ],
+        figure: fig(
+          deltaAbout,
+          l("صفحه‌ی درباره‌ی ما در دلتا کنکور", "The Delta Konkur about page"),
+          l("درباره‌ی ما", "About"),
+        ),
       },
     ],
-    solution: {
-      body: {
-        fa: "داشبورد دسکتاپ برای مرور هفتگی و اپلیکیشن موبایل برای ثبت سریع هزینه، هر دو روی یک داده‌ی مشترک.",
-        en: "A desktop dashboard for the weekly review and a mobile app for quick expense capture, both on the same data.",
-      },
-      figure: {
-        src: daftarWide,
-        alt: { fa: "فهرست فاکتورها، صفحه‌ی مشتری‌ها و نسخه‌ی موبایل دفتر", en: "Daftar’s invoice list, clients page and mobile app" },
-        caption: { fa: "فاکتورها، مشتری‌ها و نسخه‌ی موبایل", en: "Invoices, clients and the mobile app" },
-      },
-    },
-    result: conceptResult(
-      "قدم بعدی، مصاحبه با چند فریلنسر درباره‌ی روال فعلی‌شان و آزمودن جریان ساخت فاکتور با پروتوتایپ است.",
-      "The next step is interviewing a few freelancers about their current routine and testing the invoice flow with a prototype.",
-    ),
-    learned: {
-      fa: "در محصولات مالی، آرامش بصری خودش یک ویژگی است؛ هر رنگ هشدار باید دلیل داشته باشد.",
-      en: "In finance products, visual calm is a feature in itself; every warning colour needs a reason.",
-    },
   },
+
+  /* ------------------------------------------------------------------ 03 */
   {
-    slug: "karvan",
-    concept: true,
-    title: { fa: "کاروان", en: "Karvan" },
-    category: { fa: "اپلیکیشن موبایل · سفر و رزرو", en: "Mobile app · Travel & booking" },
-    oneLiner: {
-      fa: "برنامه‌ریزی سفر در ایران، از انتخاب مقصد تا بلیت قطار، در یک مسیر.",
-      en: "Planning a trip in Iran, from picking a destination to the train ticket, in one flow.",
-    },
-    summary: {
-      fa: "برای یک سفر چندروزه در ایران، معمولاً باید بین چند سایت بلیت، صفحه‌های شبکه‌های اجتماعی و پیام دوستان جابه‌جا شد. کاروان این تکه‌ها را در یک برنامه‌ی روزبه‌روز کنار هم می‌گذارد.",
-      en: "A multi-day trip in Iran usually means hopping between ticket sites, social media pages and friends’ messages. Karvan puts those pieces together in a day-by-day plan.",
-    },
+    slug: "extra-eye",
+    concept: false,
+    title: l("Extra Eye", "Extra Eye"),
+    category: l("وب‌سایت · لندینگ محصول", "Website · Product landing page"),
+    oneLiner: l("خانه‌ای برای مدیریت دوربین‌ها از راه دور.", "A home for remote camera management."),
+    summary: l(
+      "لندینگ محصولی که اپلیکیشن را معرفی می‌کند، گزینه‌های اشتراک را توضیح می‌دهد و بازدیدکننده را تا نصب همراهی می‌کند.",
+      "A product landing page that introduces the app, explains subscription options and guides visitors toward installation.",
+    ),
     theme: {
-      bg: "#a84d33",
-      title: "#fbe6d4",
-      text: "#fff7ef",
-      heroBg: "#f2dcc8",
-      heroText: "#7e3520",
-      paper: "#faf3ec",
-      paperText: "#3a2117",
-      accent: "#1f4e52",
+      bg: "#4146d8",
+      title: "#e3e4ff",
+      text: "#ffffff",
+      heroBg: "#e9eaff",
+      heroText: "#2b2fb0",
+      paper: "#f4f5fc",
+      paperText: "#1d1e33",
+      accent: "#4146d8",
     },
     cover: {
-      src: karvanCover,
-      alt: {
-        fa: "سه صفحه از کاروان: کشف مقصد، برنامه‌ی سفر و بلیت قطار",
-        en: "Three Karvan screens: explore, itinerary and train ticket",
-      },
+      src: eyeCover,
+      alt: l(
+        "لندینگ Extra Eye در تم تیره و روشن، همراه با نسخه‌ی تبلت",
+        "The Extra Eye landing page in dark and light themes, with the tablet layout",
+      ),
     },
-    detail: {
-      src: karvanDetail,
-      rotate: -3,
-      alt: { fa: "بلیت قطار در اپلیکیشن کاروان", en: "A train ticket in the Karvan app" },
+    detail: { src: eyeDetail, rotate: -3, alt: l("بخش آغازین لندینگ Extra Eye", "Opening section of the Extra Eye landing page") },
+    facts: {
+      platform: l("دسکتاپ و تبلت", "Desktop & tablet"),
+      screens: 4,
     },
-    meta: {
-      scope: {
-        fa: ["طراحی تجربه کاربری", "طراحی رابط کاربری", "سیستم تصویرسازی"],
-        en: ["UX design", "UI design", "Illustration system"],
-      },
-    },
-    problem: {
-      fa: "اطلاعات سفر پراکنده است و برنامه‌ریزی گاهی از خود سفر خسته‌کننده‌تر می‌شود؛ مخصوصاً وقتی ساعت رسیدن قطار با زمان ورود به اقامتگاه جور نیست.",
-      en: "Travel information is scattered, and planning can be more tiring than the trip itself — especially when the train’s arrival doesn’t match the lodge’s check-in time.",
-    },
-    goal: {
-      fa: "برنامه‌ای که بشود آن را مثل یک فهرست ساده جابه‌جا کرد و خودش زمان‌های رفت‌وآمد را حساب کند.",
-      en: "A plan you can rearrange like a simple list, which works out the travel times on its own.",
-    },
-    constraints: {
-      fa: ["اینترنت ضعیف در مسیرهای بین‌شهری", "نبود عکس باکیفیت و مجاز از همه‌ی مقصدها", "رزرو از چند تأمین‌کننده‌ی مختلف"],
-      en: ["Weak connections on intercity routes", "No licensed, high-quality photos for every destination", "Bookings from several different providers"],
-    },
-    decisions: [
+    focus: note(
+      l("تم و چیدمان", "Theme & layout"),
+      l(
+        "نمایش روشن و تیره، همراه با چیدمان‌های متناظر برای تبلت.",
+        "Light and dark presentations, with corresponding tablet layouts.",
+      ),
+    ),
+    meta: {},
+    sections: [
       {
-        title: { fa: "برنامه‌ای که شکل می‌گیرد", en: "An itinerary you can reshape" },
-        body: {
-          fa: "توقف‌ها با کشیدن جابه‌جا می‌شوند و زمان رفت‌وآمد بین آن‌ها خودکار به‌روز می‌شود؛ تداخل‌ها همان لحظه با رنگ نشان داده می‌شوند.",
-          en: "Stops move by dragging and the travel time between them updates automatically; conflicts are flagged in colour straight away.",
-        },
-        figure: {
-          src: karvanD1,
-          alt: { fa: "ساخت برنامه‌ی روزبه‌روز سفر", en: "Building a day-by-day itinerary" },
-          caption: { fa: "ساخت برنامه‌ی روزبه‌روز", en: "Building the day-by-day plan" },
-        },
+        id: "themes",
+        kicker: l("مقایسه‌ی تم", "Theme comparison"),
+        title: l("یک چیدمان، دو تم بصری", "One layout, two visual themes"),
+        lead: l(
+          "بخش آغازین در هر دو نمایش روشن و تیره، از یک ساختار محتوایی مشترک استفاده می‌کند.",
+          "The opening sequence uses the same content structure in light and dark presentations.",
+        ),
+        figure: fig(
+          eyeThemes,
+          l("صفحه‌ی کامل Extra Eye در تم روشن و تیره کنار هم", "The full Extra Eye page in light and dark themes side by side"),
+          l("روشن · تیره", "Light · Dark"),
+        ),
       },
       {
-        title: { fa: "تصویرسازی به‌جای عکس تکراری", en: "Illustration instead of stock photos" },
-        body: {
-          fa: "به‌جای عکس‌های استوک، یک سیستم تصویرسازی ساده برای هر منطقه ساخته شد که سبک است، آفلاین کار می‌کند و هویت یکدستی دارد.",
-          en: "Instead of stock photos, a simple illustration system was built for each region: light, offline-friendly and consistent.",
-        },
-        figure: {
-          src: karvanD2,
-          alt: { fa: "شش تصویرسازی مقصد با راهنمای رنگ و تایپوگرافی", en: "Six destination illustrations with a colour and type guide" },
-          caption: { fa: "سیستم تصویرسازی مقصدها", en: "The destination illustration system" },
-        },
+        id: "responsive",
+        kicker: l("چیدمان واکنش‌گرا", "Responsive layout"),
+        title: l("بومی باریک‌تر", "A narrower canvas"),
+        lead: l(
+          "محتوای پشت‌سرهم و کارت‌های اشتراکِ عمودی، صفحه را برای نمای تبلت آماده می‌کنند.",
+          "Stacked content and vertically arranged subscription cards adapt the landing page to a tablet viewport.",
+        ),
+        notes: [
+          note(
+            l("محتوا روی هم می‌نشیند", "Content stacks"),
+            l(
+              "تصویر اصلی، تیتر و دکمه‌ی اصلی، معرفی عمودی صفحه را می‌سازند.",
+              "The hero artwork, headline and primary action form a vertical introduction.",
+            ),
+          ),
+          note(
+            l("هویت مشترک", "A common identity"),
+            l(
+              "سطوح آبی برند، تصاویر گوشی و فرم‌های تکرارشونده هر دو تم را به هم وصل می‌کنند.",
+              "Blue brand surfaces, phone imagery and recurring shapes connect both themes.",
+            ),
+          ),
+        ],
+        figure: fig(
+          eyeResponsive,
+          l("نسخه‌های دسکتاپ و تبلت Extra Eye در هر دو تم", "Extra Eye desktop and tablet layouts in both themes"),
+          l("دسکتاپ روشن و تیره · تبلت روشن و تیره", "Desktop light & dark · Tablet light & dark"),
+        ),
+      },
+      {
+        id: "plans",
+        kicker: l("ویژگی‌ها / اشتراک‌ها", "Features / Subscriptions"),
+        title: l("روایتی ساخت‌یافته از محصول", "A structured product story"),
+        lead: l(
+          "توضیح ویژگی‌ها به انتخاب اشتراک‌ها در کنار هم می‌رسد و بعد راهنمای نصب و اطلاعات تکمیلی می‌آید.",
+          "Feature explanations lead into side-by-side subscription choices, followed by installation guidance and supporting information.",
+        ),
+        notes: [
+          note(
+            l("مقایسه‌ی پلن‌ها", "Compare plans"),
+            l(
+              "سه کارت تکرارشونده ویژگی‌ها، مدت‌زمان‌ها و دکمه‌ی خرید را نشان می‌دهند.",
+              "Three repeated cards present features, duration choices and a purchase action.",
+            ),
+          ),
+          note(
+            l("پشتیبانی از تصمیم", "Support the decision"),
+            l(
+              "راهنمای نصب، نظرها و پرسش‌های پرتکرار بعد از بخش‌های محصول می‌آیند.",
+              "Installation guidance, testimonials and frequently asked questions follow the product sections.",
+            ),
+          ),
+          note(
+            l("یک لندینگ پیوسته", "A continuous landing page"),
+            l(
+              "ناوبری، معرفی ویژگی‌ها، انتخاب پلن و لینک‌های دانلود در یک صفحه‌ی بلند کنار هم‌اند.",
+              "Navigation, feature discovery, plan selection and download links share one long-form page.",
+            ),
+          ),
+        ],
+        figure: fig(
+          eyePlans,
+          l("صفحه‌ی کامل تم تیره Extra Eye در سه ستون", "The full dark-theme Extra Eye page in three columns"),
+          l("تیره / صفحه‌ی کامل · مقایسه‌ی اشتراک‌ها", "Dark / full page · Subscription comparison"),
+        ),
+        full: true,
       },
     ],
-    solution: {
-      body: {
-        fa: "پنج صفحه‌ی اصلی: کشف مقصد، جزئیات مقصد، برنامه‌ی سفر، رزرو اقامتگاه و بلیت؛ با تصویرسازی‌هایی که در همه‌ی آن‌ها تکرار می‌شوند.",
-        en: "Five core screens — explore, destination, itinerary, lodge booking and ticket — tied together by the same illustrations.",
-      },
-      figure: {
-        src: karvanWide,
-        alt: { fa: "پنج صفحه‌ی اصلی کاروان کنار هم", en: "Karvan’s five main screens side by side" },
-        caption: { fa: "مسیر کامل، از انتخاب مقصد تا بلیت", en: "The full path, from destination to ticket" },
-      },
-    },
-    result: conceptResult(
-      "قدم بعدی، آزمودن ساخت برنامه با چند گروه مسافر و بررسی این است که محاسبه‌ی خودکار زمان‌ها چقدر به آن‌ها اعتماد می‌دهد.",
-      "The next step is testing itinerary building with a few groups of travellers to see how much the automatic timing earns their trust.",
-    ),
   },
+
+  /* ------------------------------------------------------------------ 04 */
   {
-    slug: "barg",
-    concept: true,
-    title: { fa: "برگ", en: "Barg" },
-    category: { fa: "اپلیکیشن موبایل · کتاب‌خوان", en: "Mobile app · E-reader" },
-    oneLiner: {
-      fa: "کتاب‌خوانی که حروف‌چینی فارسی را جدی می‌گیرد.",
-      en: "An e-reader that takes Persian typesetting seriously.",
-    },
-    summary: {
-      fa: "خواندن متن فارسی روی گوشی اغلب با فاصله‌های نامنظم، تراز ناقص و فونت نامناسب همراه است. برگ از تایپوگرافی شروع می‌کند و بقیه‌ی تجربه را دور آن می‌سازد.",
-      en: "Reading Persian on a phone often comes with uneven spacing, broken justification and poor fonts. Barg starts from typography and builds the rest of the experience around it.",
-    },
+    slug: "bonban",
+    concept: false,
+    title: l("بن‌بان", "Bonban"),
+    category: l("اپلیکیشن موبایل · مراقبت از گیاه", "Mobile app · Plant care"),
+    oneLiner: l("مراقبت از گیاه، همیشه دم دست.", "Plant care, close at hand."),
+    summary: l(
+      "رابطی موبایل برای بررسی وضعیت گیاه، دیدن توصیه‌های نگهداری و گرفتن عکس از گیاه یا محیط اطرافش.",
+      "A mobile interface for checking plant condition, exploring care advice and capturing images of a plant or its surroundings.",
+    ),
     theme: {
-      bg: "#d9d2ec",
-      title: "#2c2457",
-      text: "#2c2457",
-      heroBg: "#2c2457",
-      heroText: "#e6e0f5",
-      paper: "#f6f4fb",
-      paperText: "#241d45",
-      accent: "#b7791f",
+      bg: "#e4f1df",
+      title: "#138a43",
+      text: "#173a24",
+      heroBg: "#138a43",
+      heroText: "#eef8ea",
+      paper: "#f4f8f2",
+      paperText: "#173a24",
+      accent: "#138a43",
     },
     cover: {
-      src: bargCover,
-      alt: {
-        fa: "سه صفحه از برگ: کتاب‌خانه، صفحه‌ی خواندن و هایلایت‌ها",
-        en: "Three Barg screens: library, reader and highlights",
-      },
+      src: bonbanCover,
+      alt: l(
+        "سه صفحه از بن‌بان: خوش‌آمدگویی، خانه با وضعیت گیاه و دوربین",
+        "Three Bonban screens: welcome, home with plant status, and the camera",
+      ),
     },
-    detail: {
-      src: bargDetail,
-      rotate: 4,
-      alt: { fa: "صفحه‌ی خواندن با تنظیمات تایپوگرافی", en: "Reader view with typography settings" },
+    detail: { src: bonbanDetail, rotate: 4, alt: l("صفحه‌ی خانه‌ی بن‌بان", "Bonban home screen") },
+    facts: {
+      platform: l("اپلیکیشن موبایل", "Mobile app"),
+      screens: 9,
     },
-    meta: {
-      scope: {
-        fa: ["طراحی تجربه کاربری", "تایپوگرافی", "طراحی رابط کاربری"],
-        en: ["UX design", "Typography", "UI design"],
-      },
-    },
-    problem: {
-      fa: "حروف‌چینی بیشتر کتاب‌خوان‌ها برای لاتین تنظیم شده؛ نیم‌فاصله، کشیدگی و تراز دوطرفه در فارسی درست کار نمی‌کنند و خواندن طولانی خسته‌کننده می‌شود.",
-      en: "Most e-readers are tuned for Latin typesetting; zero-width non-joiners, kashida and full justification misbehave in Persian, and long reading becomes tiring.",
-    },
-    goal: {
-      fa: "صفحه‌ای که خواندنش به آرامی یک کتاب خوب چاپی باشد و خواننده بتواند آن را به سلیقه‌ی خودش تنظیم کند.",
-      en: "A page as calm to read as a well-printed book, which readers can tune to their own taste.",
-    },
-    constraints: {
-      fa: ["صفحه‌ی کوچک و نور محیطی متفاوت", "فایل‌های کتاب با کیفیت‌های متفاوت", "خوانندگانی با نیازهای بینایی مختلف"],
-      en: ["Small screens and changing ambient light", "Book files of varying quality", "Readers with different visual needs"],
-    },
-    decisions: [
+    focus: note(
+      l("مشاهده و مراقبت", "Observe & care"),
+      l(
+        "داشبورد گیاه، ورودی دوربین، شاخص‌های مراقبت و کارهای عملی را به هم وصل می‌کند.",
+        "A plant dashboard connects camera input, care indicators and practical tasks.",
+      ),
+    ),
+    meta: {},
+    sections: [
       {
-        title: { fa: "تایپوگرافی در اختیار خواننده", en: "Typography in the reader’s hands" },
-        body: {
-          fa: "اندازه، فاصله‌ی سطرها و سه تم کاغذی، کرم و شب با پیش‌نمایش زنده تنظیم می‌شوند؛ پیش‌فرض‌ها برای فارسی انتخاب شده‌اند، نه برای لاتین.",
-          en: "Size, line spacing and three themes — paper, sepia and night — adjust with a live preview; the defaults are chosen for Persian, not Latin.",
-        },
-        figure: {
-          src: bargD1,
-          alt: { fa: "یک صفحه‌ی کتاب در سه تم کاغذی، کرم و شب", en: "One book page in paper, sepia and night themes" },
-          caption: { fa: "یک صفحه در سه تم", en: "One page, three themes" },
-        },
+        id: "intro",
+        kicker: mobileUI,
+        title: l("آشنایی آرام", "A gentle introduction"),
+        notes: [
+          note(
+            l("هویتی طبیعی", "A natural identity"),
+            l("تصاویر گیاه و رنگ سبز، جهت بصری اپ را تعیین می‌کنند.", "Plant imagery and green accents establish the visual direction."),
+          ),
+          note(
+            l("نقطه‌ی ورود متمرکز", "A focused entry point"),
+            l(
+              "صفحه‌ی حساب فقط یک فیلد شماره‌ی تلفن دارد و کنارش دکمه‌ی ثبت‌نام برجسته است.",
+              "The account screen pairs one phone-number field with a prominent registration action.",
+            ),
+          ),
+        ],
+        figure: fig(
+          bonbanIntro,
+          l("صفحه‌های شروع، خوش‌آمدگویی و ساخت حساب بن‌بان", "Bonban splash, welcome and create-account screens"),
+          l("شروع · خوش‌آمدگویی · ساخت حساب", "Splash · Welcome · Create account"),
+        ),
+        full: true,
       },
       {
-        title: { fa: "هایلایت‌هایی که دوباره سراغشان می‌روید", en: "Highlights you come back to" },
-        body: {
-          fa: "هر هایلایت با یادداشت، فصل و تاریخ ذخیره می‌شود و می‌شود از آن یک کارت نقل‌قول برای اشتراک ساخت.",
-          en: "Each highlight is saved with its note, chapter and date, and can become a quote card to share.",
-        },
-        figure: {
-          src: bargD2,
-          alt: { fa: "انتخاب متن، فهرست یادداشت‌ها و کارت نقل‌قول", en: "Text selection, notes list and a quote card" },
-          caption: { fa: "از انتخاب متن تا کارت نقل‌قول", en: "From selection to quote card" },
-        },
+        id: "advice",
+        kicker: mobileUI,
+        title: l("از وضعیت گیاه تا توصیه‌ی مراقبت", "From plant status to care advice"),
+        notes: [
+          note(
+            l("وضعیت در یک نگاه", "Status at a glance"),
+            l("شاخص‌های مراقبت مستقیم روی تصویر گیاه انتخاب‌شده می‌نشینند.", "Care indicators sit directly over the selected plant image."),
+          ),
+          note(
+            l("توصیه هر وقت لازم شد", "Advice on demand"),
+            l(
+              "بخش‌های بازشونده راهنما را نشان می‌دهند و بقیه‌ی موضوع‌ها را جمع نگه می‌دارند.",
+              "Expandable sections reveal guidance while keeping other topics compact.",
+            ),
+          ),
+          note(
+            l("یک کار مشخص", "A concrete task"),
+            l(
+              "ابزار سنجش نور، از جای فعلی گیاه و جاهای جایگزین عکس می‌خواهد.",
+              "The light-assessment tool asks for photos of the plant location and alternative spaces.",
+            ),
+          ),
+        ],
+        figure: fig(
+          bonbanAdvice,
+          l("خانه‌ی بن‌بان، توصیه‌ی بازشده و شروع ابزار مراقبت", "Bonban home, expanded advice and the care tool"),
+          l("خانه / نمای کلی · توصیه‌ی بازشده · ابزار مراقبت", "Home / overview · Expanded advice · Care tool"),
+        ),
+        full: true,
+      },
+      {
+        id: "progress",
+        kicker: mobileUI,
+        title: l("پیشرفت کار را نشان بده", "Show progress through the task"),
+        notes: [
+          note(
+            l("تغییر وضعیت قابل‌دیدن", "Visible state changes"),
+            l(
+              "با انجام هر عکس، نشانگرهای خالی به تیک سبز تبدیل می‌شوند.",
+              "Outlined markers become green checkmarks as photo tasks are completed.",
+            ),
+          ),
+          note(
+            l("بازخورد پایان کار", "Completion feedback"),
+            l("در پایان، یک بنر تأیید بالای ابزار ظاهر می‌شود.", "The completed view adds a confirmation banner above the tool."),
+          ),
+          note(
+            l("حفظ زمینه", "Keep the context"),
+            l(
+              "گیاه انتخاب‌شده و دسته‌ی مراقبت در تمام مراحل دیده می‌شوند.",
+              "The selected plant and care category remain visible throughout the sequence.",
+            ),
+          ),
+        ],
+        figure: fig(
+          bonbanProgress,
+          l("سه مرحله‌ی ابزار مراقبت بن‌بان: شروع‌نشده، یک قدم، تمام‌شده", "Three stages of the Bonban care tool: not started, one step, complete"),
+          l("شروع‌نشده · یک قدم انجام‌شده · کار تمام‌شده", "Not started · One step complete · Task complete"),
+        ),
+        full: true,
       },
     ],
-    solution: {
-      body: {
-        fa: "پنج صفحه‌ی اصلی: شروع، کتاب‌خانه، جزئیات کتاب، خواندن و هدف مطالعه؛ همه با یک زبان بصری آرام و کاغذی.",
-        en: "Five core screens — onboarding, library, book detail, reader and reading goal — in one calm, paper-like visual language.",
-      },
-      figure: {
-        src: bargWide,
-        alt: { fa: "پنج صفحه‌ی اصلی برگ کنار هم", en: "Barg’s five main screens side by side" },
-        caption: { fa: "جریان اصلی برگ", en: "Barg’s main flow" },
+  },
+
+  /* ------------------------------------------------------------------ 05 */
+  {
+    slug: "jewelry-store",
+    concept: false,
+    title: l("فروشگاه جواهر", "Jewelry Store"),
+    category: l("وب‌سایت · فروشگاه آنلاین", "Website · Online storefront"),
+    oneLiner: l("ویترینی تصویری برای طلا و جواهر.", "A visual storefront for gold and jewelry."),
+    summary: l(
+      "صفحه‌ای دسکتاپ که عکاسی مجله‌ای، کشف محصول و خرید بر پایه‌ی مجموعه‌ها را کنار هم می‌آورد.",
+      "A desktop landing page that combines editorial photography, product discovery and collection-led shopping.",
+    ),
+    theme: {
+      bg: "#141c4f",
+      title: "#e7d3a1",
+      text: "#eef0fa",
+      heroBg: "#efe6d2",
+      heroText: "#141c4f",
+      paper: "#f6f3ec",
+      paperText: "#1a1d33",
+      accent: "#b08a3e",
+    },
+    cover: {
+      src: jewelryCover,
+      alt: l(
+        "صفحه‌ی فروشگاه جواهر در دو ستون: معرفی، محصولات، ویترین و هدیه",
+        "The jewelry storefront in two columns: hero, products, showcase and gift section",
+      ),
+    },
+    detail: { src: jewelryDetail, rotate: -2, alt: l("پرتره‌ی طاق‌دار در فروشگاه جواهر", "Arched portrait from the jewelry storefront") },
+    facts: {
+      platform: l("وب · دسکتاپ", "Desktop web"),
+      screens: 1,
+      areas: {
+        fa: ["مرور مجموعه‌ها", "کارت‌های محصول", "روایت برند"],
+        en: ["Collection browsing", "Product cards", "Brand storytelling"],
       },
     },
-    result: conceptResult(
-      "قدم بعدی، آزمودن پیش‌فرض‌های تایپوگرافی با خوانندگان در جلسه‌های خواندن طولانی است.",
-      "The next step is testing the typography defaults with readers during long reading sessions.",
+    meta: {},
+    sections: [
+      {
+        id: "discovery",
+        kicker: l("کشف محصول", "Product discovery"),
+        title: l("مجموعه را در مرکز توجه بگذار", "Bring the collection into focus"),
+        lead: l(
+          "ویترین محصولات، عکس، قیمت، انتخاب رنگ و دکمه‌ی افزودن به سبد را در الگوی کارت تکرارشونده کنار هم می‌آورد.",
+          "A product showcase uses photography, pricing, color choices and add-to-cart actions within a repeatable card pattern.",
+        ),
+        figure: fig(
+          jewelryDiscovery,
+          l("صفحه‌ی کامل فروشگاه جواهر در سه ستون", "The full jewelry storefront in three columns"),
+          l("صفحه‌ی کامل · ویترین محصولات", "Full page · Product showcase"),
+        ),
+        full: true,
+      },
+      {
+        id: "editorial",
+        kicker: l("ترکیب‌بندی مجله‌ای", "Editorial composition"),
+        title: l("از محصول تا داستان برند", "From product to brand story"),
+        lead: l(
+          "عکس و متن به‌تناوب می‌آیند و میان بخش‌های محصول‌محور و برندمحور ریتم می‌سازند.",
+          "Alternating photography and text create a rhythm between product-led and brand-led sections.",
+        ),
+        notes: [
+          note(
+            l("فرم، قاب تصویر است", "Shape frames the image"),
+            l(
+              "پرتره‌ی طاق‌دار، جزئیات جواهر و دکمه‌ی خرید، معرفی یک مجموعه را به لحظه‌ای مجله‌ای تبدیل می‌کنند.",
+              "An arched portrait, jewelry detail and shopping action turn a collection introduction into a distinct editorial moment.",
+            ),
+          ),
+          note(
+            l("رنگ، داستان را نگه می‌دارد", "Color holds the story"),
+            l(
+              "پنل متن سرمه‌ای، نظر مشتری را کنار عکس پرتره محکم و دیدنی می‌کند.",
+              "A deep blue text panel gives the testimonial a strong visual anchor beside the portrait photography.",
+            ),
+          ),
+        ],
+        figure: fig(
+          jewelryEditorial,
+          l("بخش‌های مجموعه، هدیه، ویترین و نظر مشتری", "Collection, gift, showcase and testimonial sections"),
+          l("معرفی مجموعه · بخش نظر مشتری", "Collection feature · Testimonial section"),
+        ),
+      },
+    ],
+  },
+
+  /* ------------------------------------------------------------------ 06 */
+  {
+    slug: "banzi",
+    concept: false,
+    title: l("بان‌زی", "Banzi"),
+    category: l("اپلیکیشن موبایل · مراقبت از حیوان خانگی", "Mobile app · Pet care"),
+    oneLiner: l("همراهی برای مراقبت روزانه از حیوان خانگی.", "A companion for everyday pet care."),
+    summary: l(
+      "تجربه‌ای موبایل که وضعیت حیوان، راهنمای مراقبت، کارهای مبتنی بر عکس و جریان تشخیص را در یک اپ جمع می‌کند.",
+      "A mobile experience that brings pet status, care guidance, photo-based tasks and a recognition flow into one app.",
     ),
+    theme: {
+      bg: "#fbe7d4",
+      title: "#c9520f",
+      text: "#3a2414",
+      heroBg: "#d4621c",
+      heroText: "#fff4ea",
+      paper: "#fdf6ef",
+      paperText: "#3a2414",
+      accent: "#d4621c",
+    },
+    cover: {
+      src: banziCover,
+      alt: l(
+        "سه صفحه از بان‌زی: معرفی، خانه با وضعیت حیوان و نتیجه‌ی تشخیص",
+        "Three Banzi screens: introduction, home with pet status, and a recognition result",
+      ),
+    },
+    detail: { src: banziDetail, rotate: 3, alt: l("صفحه‌ی خوش‌آمدگویی بان‌زی", "Banzi welcome screen") },
+    facts: {
+      platform: l("اپلیکیشن موبایل", "Mobile app"),
+      screens: 12,
+    },
+    focus: note(
+      l("مراقبتی که دلنشین است", "Care feels approachable"),
+      l(
+        "رنگ نارنجی گرم، تصویرسازی‌های بازیگوش و الگوهای آشنای موبایل، تجربه را شکل می‌دهند.",
+        "Warm orange accents, playful illustrations and familiar mobile patterns shape the experience.",
+      ),
+    ),
+    meta: {},
+    sections: [
+      {
+        id: "intro",
+        kicker: mobileUI,
+        title: l("حال‌وهوا را قبل از ثبت‌نام بساز", "Set the tone before sign-up"),
+        notes: [
+          note(
+            l("اولین تماس دوستانه", "Friendly first contact"),
+            l("تصویرسازی‌های سه‌بعدی بزرگ، پیام‌های آغازین را می‌رسانند.", "Large 3D illustrations carry the opening messages."),
+          ),
+          note(
+            l("هر صفحه یک ایده", "One idea per screen"),
+            l("جمله‌های کوتاه، اپ را در سه صفحه‌ی پشت‌سرهم معرفی می‌کنند.", "Short statements introduce the app across a three-screen sequence."),
+          ),
+          note(
+            l("قدم بعدی پیدا", "A visible next step"),
+            l(
+              "نقطه‌های پیشرفت و دکمه‌های نارنجی مسیر معرفی را مشخص می‌کنند.",
+              "Progress dots and orange actions mark the path through the introduction.",
+            ),
+          ),
+        ],
+        figure: fig(
+          banziIntro,
+          l("سه صفحه‌ی معرفی بان‌زی با تصویرسازی سه‌بعدی", "Banzi’s three introduction screens with 3D illustrations"),
+          l("معرفی ۰۱ · ۰۲ · ۰۳", "Introduction 01 · 02 · 03"),
+        ),
+        full: true,
+      },
+      {
+        id: "identity",
+        kicker: l("هویت / دسترسی به حساب", "Identity / Account access"),
+        title: l("اولین تعاملی گرم", "A warm first interaction"),
+        lead: l(
+          "صفحه‌های شروع و ثبت‌نام، نقش پنجه و رنگ نارنجی را به‌عنوان نشانه‌های مشترک معرفی می‌کنند.",
+          "The splash and registration screens introduce a shared paw motif and orange accent color.",
+        ),
+        notes: [
+          note(
+            l("پنجه و رنگ", "Paw & color"),
+            l(
+              "نماد تصویرسازی‌شده و رنگ تأکیدی، برند را به صفحه‌های کاربردی وصل می‌کنند.",
+              "The illustrated symbol and accent color connect branding with the functional screens.",
+            ),
+          ),
+          note(
+            l("اقدامی روشن", "A clear action"),
+            l(
+              "ثبت‌نام با شماره‌ی تلفن همان دکمه‌ی گرد صفحه‌های معرفی را دارد.",
+              "Phone-number registration uses the same rounded action treatment as the onboarding screens.",
+            ),
+          ),
+        ],
+        figure: fig(
+          banziIdentity,
+          l("صفحه‌های شروع، خوش‌آمدگویی و ساخت حساب بان‌زی", "Banzi splash, welcome and create-account screens"),
+          l("شروع / هویت · ساخت حساب", "Splash / identity · Create account"),
+        ),
+        full: true,
+      },
+      {
+        id: "task",
+        kicker: mobileUI,
+        title: l("یک کار مراقبتی، قدم‌به‌قدم", "Break a care task into steps"),
+        notes: [
+          note(
+            l("انتخاب حوزه‌ی مراقبت", "Choose a care area"),
+            l(
+              "نوار فشرده‌ی دسته‌ها، خواب، تغذیه، بهداشت و سلامت را معرفی می‌کند.",
+              "A compact category strip introduces sleep, nutrition, hygiene and health.",
+            ),
+          ),
+          note(
+            l("ثبت زمینه", "Capture context"),
+            l(
+              "کار مربوط به خواب، از جای فعلی خواب و یک جای جایگزین عکس می‌خواهد.",
+              "The sleep task asks for a photo of the current sleeping area and an alternative.",
+            ),
+          ),
+          note(
+            l("تأیید هر قدم", "Confirm each step"),
+            l("نشانگرهای نارنجی، پیشرفت را در فهرست کارها نشان می‌دهند.", "Orange completion markers show progress within the checklist."),
+          ),
+        ],
+        figure: fig(
+          banziTask,
+          l("سه مرحله‌ی یک کار مراقبتی در بان‌زی", "Three stages of a Banzi care task"),
+          l("شروع کار · در حال انجام · تمام‌شده", "Task start · In progress · Complete"),
+        ),
+        full: true,
+      },
+      {
+        id: "capture",
+        kicker: mobileUI,
+        title: l("بگیر، تشخیص بده، ادامه بده", "Capture, recognize, continue"),
+        notes: [
+          note(
+            l("نمای دوربین اختصاصی", "A dedicated camera view"),
+            l("کنترل‌های عکاسی دور یک پیش‌نمایش تمام‌صفحه قرار می‌گیرند.", "Capture controls sit around a full-screen image preview."),
+          ),
+          note(
+            l("نتیجه‌ای متمرکز", "A focused result"),
+            l(
+              "کارت نتیجه در وسط، حیوان تشخیص‌داده‌شده و اقدام بعدی را نشان می‌دهد.",
+              "A centered result card presents the recognized pet and a next action.",
+            ),
+          ),
+          note(
+            l("بازگشت به مراقبت", "Return to care"),
+            l(
+              "صفحه‌ی خانه وضعیت حیوان، دکمه‌ی دوربین و توصیه‌های بازشونده را کنار هم دارد.",
+              "The home interface combines pet status, a camera action and expandable advice.",
+            ),
+          ),
+        ],
+        figure: fig(
+          banziCapture,
+          l("دوربین، نتیجه‌ی تشخیص و خانه‌ی بان‌زی", "Banzi camera, recognition result and home"),
+          l("دوربین · نتیجه‌ی تشخیص · خانه", "Camera · Recognition · Home"),
+        ),
+        full: true,
+      },
+    ],
   },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
-
-export function getAdjacent(slug: string) {
-  const i = projects.findIndex((p) => p.slug === slug);
-  return { index: i, next: projects[(i + 1) % projects.length] };
-}

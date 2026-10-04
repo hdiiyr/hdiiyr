@@ -3,11 +3,12 @@
 //   node scripts/render-mockups.mjs            # every project
 //   node scripts/render-mockups.mjs nava barg  # selected projects
 //
-// Each design/mockups/<slug>.html holds boards with ids cover, detail, d1, d2, wide.
+// Each design/mockups/<slug>.html declares its boards as
+//   <section class="board" id="<name>" data-size="cover|detail|wide|tall">
 // Output: src/content/media/<slug>/<board>.webp (and a PNG copy in design/renders for review).
 
 import { execFile } from "node:child_process";
-import { mkdir, readdir } from "node:fs/promises";
+import { mkdir, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { promisify } from "node:util";
@@ -24,19 +25,28 @@ const CHROME =
 const SCALE = 2;
 
 // Keep in sync with .board[data-size] in kit.css.
-const BOARDS = {
+const SIZES = {
   cover: [1600, 1000],
   detail: [880, 1100],
-  d1: [1600, 1000],
-  d2: [1600, 1000],
   wide: [2000, 1000],
+  tall: [1600, 1800],
 };
 
 // Output widths (px) — large enough for full-bleed retina use without shipping raw renders.
-const OUTPUT_WIDTH = { cover: 2400, detail: 1100, d1: 2400, d2: 2400, wide: 2880 };
+const OUTPUT_WIDTH = { cover: 2400, detail: 1100, wide: 2880, tall: 2400 };
 
-async function renderBoard(slug, board) {
-  const [w, h] = BOARDS[board];
+/** Reads the boards (id + size) declared in a mockup file. */
+async function boardsOf(slug) {
+  const html = await readFile(path.join(mockDir, `${slug}.html`), "utf8");
+  const found = [...html.matchAll(/<section class="board[^"]*" id="([^"]+)" data-size="([^"]+)"/g)];
+  return found.map(([, id, size]) => {
+    if (!SIZES[size]) throw new Error(`${slug}#${id}: unknown size "${size}"`);
+    return { id, size };
+  });
+}
+
+async function renderBoard(slug, { id: board, size }) {
+  const [w, h] = SIZES[size];
   const url = `${pathToFileURL(path.join(mockDir, `${slug}.html`)).href}?board=${board}`;
   const png = path.join(renderDir, `${slug}-${board}.png`);
   await run(CHROME, [
@@ -54,7 +64,7 @@ async function renderBoard(slug, board) {
   const outDir = path.join(mediaDir, slug);
   await mkdir(outDir, { recursive: true });
   await sharp(png)
-    .resize({ width: OUTPUT_WIDTH[board], withoutEnlargement: true })
+    .resize({ width: OUTPUT_WIDTH[size], withoutEnlargement: true })
     .webp({ quality: 84, effort: 5 })
     .toFile(path.join(outDir, `${board}.webp`));
   return png;
@@ -69,9 +79,9 @@ async function main() {
 
   for (const slug of slugs) {
     // Files are overwritten in place (never deleted first) so a running dev server keeps resolving them.
-    for (const board of Object.keys(BOARDS)) {
+    for (const board of await boardsOf(slug)) {
       const png = await renderBoard(slug, board);
-      console.log(`✓ ${slug}/${board} ← ${path.relative(root, png)}`);
+      console.log(`✓ ${slug}/${board.id} ← ${path.relative(root, png)}`);
     }
   }
 }

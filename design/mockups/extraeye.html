@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="kit.css">
+<style>
+  .brand { background: #4146d8; }
+  .deep { background: #2b2fb0; }
+  .mist { background: #e9eaff; }
+  .ring { position: absolute; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.14); }
+  .mist .ring { border-color: rgba(65, 70, 216, 0.12); }
+  .shot.slice > img { position: absolute; left: 0; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<!-- Gallery cover: dark + light openings and a tablet -->
+<section class="board brand" id="cover" data-size="cover">
+  <div class="ring" style="left: 1020px; top: -260px; width: 760px; height: 760px;"></div>
+  <div class="ring" style="left: 1120px; top: -160px; width: 560px; height: 560px;"></div>
+  <div class="shot crop" style="left: 150px; top: 120px; width: 560px; height: 760px;"><img src="../source/extraeye/desktop-2.png" alt=""></div>
+  <div class="shot crop" style="left: 640px; top: 200px; width: 560px; height: 700px;"><img src="../source/extraeye/desktop-1.png" alt=""></div>
+  <div class="shot crop" style="left: 1250px; top: 150px; width: 200px; height: 700px; border-radius: 16px;"><img src="../source/extraeye/tablet-1.png" alt=""></div>
+</section>
+
+<section class="board deep" id="detail" data-size="detail">
+  <div class="shot crop" style="left: 120px; top: 100px; width: 640px; height: 900px; border-radius: 18px;"><img src="../source/extraeye/desktop-1.png" alt=""></div>
+</section>
+
+<!-- Same page, light and dark, full height -->
+<section class="board mist" id="themes" data-size="tall">
+  <div class="ring" style="left: -300px; top: 1100px; width: 900px; height: 900px;"></div>
+  <div class="shot" style="left: 362px; top: 80px; width: 408px;"><img src="../source/extraeye/desktop-1.png" alt=""></div>
+  <div class="shot" style="left: 830px; top: 80px; width: 408px;"><img src="../source/extraeye/desktop-2.png" alt=""></div>
+</section>
+
+<!-- Desktop and tablet, both themes -->
+<section class="board brand" id="responsive" data-size="tall">
+  <div class="shot" style="left: 179px; top: 80px; width: 408px;"><img src="../source/extraeye/desktop-1.png" alt=""></div>
+  <div class="shot" style="left: 627px; top: 80px; width: 408px;"><img src="../source/extraeye/desktop-2.png" alt=""></div>
+  <div class="shot" style="left: 1075px; top: 80px; width: 153px; border-radius: 10px;"><img src="../source/extraeye/tablet-1.png" alt=""></div>
+  <div class="shot" style="left: 1268px; top: 80px; width: 153px; border-radius: 10px;"><img src="../source/extraeye/tablet-2.png" alt=""></div>
+</section>
+
+<!-- Dark page in three consecutive columns (509×2048 at 1.12×) -->
+<section class="board deep" id="plans" data-size="wide">
+  <div class="shot slice" style="left: 95px; top: 118px; width: 570px; height: 765px;"><img src="../source/extraeye/desktop-2.png" alt="" style="top: 0;"></div>
+  <div class="shot slice" style="left: 715px; top: 118px; width: 570px; height: 765px;"><img src="../source/extraeye/desktop-2.png" alt="" style="top: -765px;"></div>
+  <div class="shot slice" style="left: 1335px; top: 118px; width: 570px; height: 765px;"><img src="../source/extraeye/desktop-2.png" alt="" style="top: -1530px;"></div>
+</section>
+
+<script src="board.js"></script>
+</body>
+</html>

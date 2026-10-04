@@ -45,22 +45,25 @@ npm run lint
 never a link that goes nowhere. Set `resumeFile` to a PDF in `public/` to add a download button;
 until then the résumé can be printed or saved as PDF from the browser.
 
-The four projects are marked `concept: true` and labelled "Concept Project" everywhere. To add
-real work, replace an entry in `projects.ts` (images are imported at the top of the file).
-Each project needs `cover` (16:10), `detail` (4:5) and the figures used in its case study.
+The gallery shows six real projects (MAU, Delta Konkur, Extra Eye, Bonban, Jewelry Store,
+Banzi). Their text follows the portfolio document; role, client, year and tools were not in
+it and can be added under `meta` in `projects.ts`. Each project needs a `cover` (16:10), a
+`detail` (4:5) and one figure per case-study section.
 
-## Concept mockups
+## Project images
 
-The concept images are designed in HTML (`design/mockups/<slug>.html`, shared `kit.css`) and
-rendered with local Chrome:
+The original screenshots live in `design/source/<project>/` (git-ignored: about 20 MB). They are
+composed into presentation boards in `design/mockups/<slug>.html` (browser windows, phone frames,
+full-page strips) and rendered with local Chrome:
 
 ```bash
 node scripts/render-mockups.mjs            # all projects
-node scripts/render-mockups.mjs nava       # one project
+node scripts/render-mockups.mjs mau        # one project
 ```
 
-Output goes to `src/content/media/<slug>/*.webp`; full-size PNGs for review go to
-`design/renders/` (git-ignored).
+Each `<section class="board" id="…" data-size="cover|detail|wide|tall">` becomes
+`src/content/media/<slug>/<id>.webp`; full-size PNGs for review go to `design/renders/`
+(git-ignored). To use sharper exports later, replace the files in `design/source/` and re-render.
 
 ## Notes
 

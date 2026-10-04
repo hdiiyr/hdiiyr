@@ -2,13 +2,18 @@ import localFont from "next/font/local";
 
 // All fonts are SIL Open Font License 1.1, self-hosted from src/fonts.
 
-/** Vazirmatn (Arabic-script subset) — Persian display and text. */
+/**
+ * Vazirmatn (Arabic-script subset) — Persian display and text.
+ * No generated fallback face: Latin characters must fall through to the next family in
+ * the CSS stack (Gloock for display, Manrope for text), not to a metric-matched Arial.
+ */
 export const vazirmatn = localFont({
   src: "../fonts/vazirmatn-arabic.woff2",
   weight: "100 900",
   variable: "--font-vazirmatn",
   display: "swap",
-  fallback: ["Tahoma", "sans-serif"],
+  adjustFontFallback: false,
+  fallback: [],
 });
 
 /** Gloock — English display serif. */

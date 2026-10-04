@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="kit.css">
+<style>
+  .green { background: #133a2f; }
+  .cream { background: #efe7d6; }
+  .arch {
+    position: absolute; border: 2px solid rgba(19, 58, 47, 0.12); border-bottom: 0;
+    border-radius: 999px 999px 0 0;
+  }
+  .green .arch { border-color: rgba(239, 231, 214, 0.1); }
+  .window { direction: ltr; }
+</style>
+</head>
+<body>
+
+<!-- Gallery cover -->
+<section class="board cream" id="cover" data-size="cover">
+  <div class="arch" style="left: 980px; top: 120px; width: 520px; height: 900px;"></div>
+  <div class="arch" style="left: 1040px; top: 190px; width: 400px; height: 830px;"></div>
+  <div class="window" style="left: 140px; top: 120px; width: 880px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/start.png" alt="">
+  </div>
+  <div class="window" style="left: 560px; top: 280px; width: 900px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/response.png" alt="">
+  </div>
+</section>
+
+<!-- Small overlapping image on the home slide -->
+<section class="board green" id="detail" data-size="detail">
+  <div class="shot crop" style="left: 90px; top: 100px; width: 700px; height: 900px; border-radius: 18px;">
+    <img src="../source/mau/login.png" alt="" style="object-position: left center;">
+  </div>
+</section>
+
+<!-- Case study: start / empty conversation -->
+<section class="board green" id="start" data-size="cover">
+  <div class="arch" style="left: 60px; top: 140px; width: 420px; height: 900px;"></div>
+  <div class="window" style="left: 220px; top: 94px; width: 1160px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/start.png" alt="">
+  </div>
+</section>
+
+<!-- Case study: sign in + create account -->
+<section class="board cream" id="access" data-size="wide">
+  <div class="window" style="left: 100px; top: 186px; width: 880px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/login.png" alt="">
+  </div>
+  <div class="window" style="left: 1020px; top: 186px; width: 880px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/signup.png" alt="">
+  </div>
+</section>
+
+<!-- Case study: composer with attachments -->
+<section class="board cream" id="input" data-size="cover">
+  <div class="arch" style="left: 1140px; top: 160px; width: 420px; height: 900px;"></div>
+  <div class="window" style="left: 220px; top: 94px; width: 1160px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/chat.png" alt="">
+  </div>
+</section>
+
+<!-- Case study: structured response -->
+<section class="board green" id="response" data-size="cover">
+  <div class="window" style="left: 220px; top: 94px; width: 1160px;">
+    <div class="chrome"><b></b><b></b><b></b><div class="url"></div></div>
+    <img class="view" src="../source/mau/response.png" alt="">
+  </div>
+</section>
+
+<script src="board.js"></script>
+</body>
+</html>

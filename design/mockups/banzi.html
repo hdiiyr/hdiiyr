@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="kit.css">
+<style>
+  .peach { background: #fbe7d4; }
+  .orange { background: #d4621c; }
+  .cream { background: #fff3e8; }
+  .blob { position: absolute; border-radius: 50%; background: #f8d6b8; }
+  .cream .blob { background: #fbe4cf; }
+</style>
+</head>
+<body>
+
+<!-- Gallery cover: introduction, home, recognition -->
+<section class="board peach" id="cover" data-size="cover">
+  <div class="blob" style="left: 470px; top: 160px; width: 660px; height: 660px;"></div>
+  <div class="phone real" style="--pw: 330px; left: 330px; top: 170px; transform: rotate(-5deg);"><div class="island"></div><div class="screen"><img src="../source/banzi/p29.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 330px; left: 940px; top: 170px; transform: rotate(5deg);"><div class="island"></div><div class="screen"><img src="../source/banzi/p34.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 380px; left: 610px; top: 102px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p40.jpg" alt=""></div></div>
+</section>
+
+<section class="board orange" id="detail" data-size="detail">
+  <div class="phone real" style="--pw: 440px; left: 220px; top: 87px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p32.jpg" alt=""></div></div>
+</section>
+
+<!-- Three introduction screens -->
+<section class="board cream" id="intro" data-size="wide">
+  <div class="blob" style="left: 760px; top: 160px; width: 680px; height: 680px;"></div>
+  <div class="phone real" style="--pw: 340px; left: 350px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p29.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 830px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p30.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 1310px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p31.jpg" alt=""></div></div>
+</section>
+
+<!-- Splash, welcome, create account -->
+<section class="board peach" id="identity" data-size="wide">
+  <div class="phone real" style="--pw: 340px; left: 350px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p26.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 830px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p32.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 1310px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p25.jpg" alt=""></div></div>
+</section>
+
+<!-- Care task: start, in progress, complete -->
+<section class="board cream" id="task" data-size="wide">
+  <div class="phone real" style="--pw: 340px; left: 350px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p27.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 830px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p28.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 1310px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p24.jpg" alt=""></div></div>
+</section>
+
+<!-- Camera, recognition result, home -->
+<section class="board peach" id="capture" data-size="wide">
+  <div class="phone real" style="--pw: 340px; left: 350px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p33.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 830px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p34.jpg" alt=""></div></div>
+  <div class="phone real" style="--pw: 340px; left: 1310px; top: 145px;"><div class="island"></div><div class="screen"><img src="../source/banzi/p40.jpg" alt=""></div></div>
+</section>
+
+<script src="board.js"></script>
+</body>
+</html>

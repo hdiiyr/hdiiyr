@@ -15,7 +15,8 @@
 }
 
 html[lang="fa"] {
-  --font-display: var(--font-vazirmatn), var(--font-manrope), Tahoma, sans-serif;
+  /* Latin words inside Persian display text (e.g. "MAU") take the English display serif. */
+  --font-display: var(--font-vazirmatn), var(--font-gloock), Tahoma, sans-serif;
   --font-text: var(--font-vazirmatn), var(--font-manrope), Tahoma, sans-serif;
   --display-weight: 900;
   --display-lh: 1.28;
@@ -61,6 +62,8 @@ html {
   background: var(--bg);
   color: var(--ink);
   overflow-x: clip;
+  /* Never fake bold/italic: Gloock ships one weight. */
+  font-synthesis: none;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
@@ -416,6 +419,37 @@ html[lang="fa"] .site-header__nav {
 .site-header__lang:hover {
   background: var(--ink);
   color: var(--bg);
+}
+
+/* Narrow phones: the spaced-out English capitals need a tighter header. */
+@media (max-width: 480px) {
+  .site-header {
+    gap: 10px;
+  }
+
+  html[lang="en"] .site-header__brand,
+  html[lang="en"] .site-header__nav {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  html[lang="en"] .site-header__nav {
+    gap: 12px;
+  }
+}
+
+/* Smallest phones: the English header wraps onto two lines instead of overflowing. */
+@media (max-width: 360px) {
+  html[lang="en"] {
+    --header-h: 108px;
+  }
+
+  html[lang="en"] .site-header {
+    flex-wrap: wrap;
+    align-content: center;
+    row-gap: 10px;
+    height: var(--header-h);
+  }
 }
 
 /* =========================================================================
@@ -1121,9 +1155,10 @@ html[lang="fa"] .index__title {
     padding-inline-start: calc((100% - var(--hero-w)) / 2);
   }
 
+  /* Shift outward by half the title's width, but never past the page gutter. */
   .case-hero__title {
     align-self: flex-start;
-    translate: calc(var(--dir) * -50%) 0;
+    translate: calc(var(--dir) * -1 * min(50%, (100vw - var(--hero-w)) / 2 - var(--gutter))) 0;
   }
 
   .case-hero__titles .case-hero__cat {
@@ -1306,6 +1341,41 @@ html[lang="fa"] .case__statement {
 
 .chapter {
   margin-top: 18vh;
+}
+
+.chapter__kicker {
+  margin-bottom: 18px;
+}
+
+.chapter__lead {
+  max-width: 44ch;
+  margin: -3vh 0 8vh;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.6;
+}
+
+html[lang="fa"] .chapter__lead {
+  max-width: 50ch;
+  line-height: 1.9;
+}
+
+.case__focus {
+  max-width: 62ch;
+  margin-top: 56px;
+  padding: 22px 26px;
+  border-inline-start: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  line-height: var(--text-lh);
+}
+
+.case__focus .label {
+  margin-bottom: 8px;
+}
+
+.case__focus-title {
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .chapter__title {
