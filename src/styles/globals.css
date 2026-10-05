@@ -842,6 +842,18 @@ html[lang="fa"] .rail__list {
   }
 }
 
+/* Deep link: hidden until the gallery has jumped to the project; shown anyway after 2 s. */
+.deep-link .showcase {
+  opacity: 0;
+  animation: deep-link-fallback 0s linear 2s forwards;
+}
+
+@keyframes deep-link-fallback {
+  to {
+    opacity: 1;
+  }
+}
+
 /* First paint: the gallery assembles itself with CSS (no JS wait, no loader). */
 @media (prefers-reduced-motion: no-preference) {
   .showcase.is-intro .showcase__title .mask__inner {

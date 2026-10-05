@@ -32,7 +32,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/work/[sl
       description: project.oneLiner[locale],
       images: [
         {
-          url: project.cover.src.src,
+          // Absolute: the image path already carries the base path, so it must not be
+          // joined to metadataBase's path again.
+          url: new URL(project.cover.src.src, process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3100").href,
           width: project.cover.src.width,
           height: project.cover.src.height,
           alt: project.cover.alt[locale],

@@ -15,12 +15,13 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
   };
 }
 
-export default async function HomePage({ params, searchParams }: PageProps<"/[locale]">) {
+/**
+ * Fully static (works as a static export): the page always renders the first project and the
+ * gallery itself jumps to `?p=<slug>` in the browser.
+ */
+export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const { p } = await searchParams;
-  const requested = typeof p === "string" ? projects.findIndex((x) => x.slug === p) : -1;
-  const initial = Math.max(0, requested);
   const ui = getUI(locale);
 
   const slides: Slide[] = projects.map((project) => ({
@@ -41,7 +42,7 @@ export default async function HomePage({ params, searchParams }: PageProps<"/[lo
     detail: { src: project.detail.src, alt: project.detail.alt[locale], rotate: project.detail.rotate },
   }));
 
-  const first = slides[initial].theme;
+  const first = slides[0].theme;
 
   return (
     <main id="main" className="page-home">
@@ -49,7 +50,7 @@ export default async function HomePage({ params, searchParams }: PageProps<"/[lo
       <h1 className="sr-only">
         {site.name[locale]} — {ui.showcase.label}
       </h1>
-      <ProjectShowcase locale={locale} slides={slides} initial={initial} />
+      <ProjectShowcase locale={locale} slides={slides} />
     </main>
   );
 }

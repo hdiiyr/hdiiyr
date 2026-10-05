@@ -7,7 +7,7 @@ import { getUI } from "@/content/ui";
 import { site } from "@/content/site";
 
 export default function Header({ locale }: { locale: Locale }) {
-  const pathname = usePathname() ?? `/${locale}`;
+  const pathname = (usePathname() ?? `/${locale}`).replace(/(.)\/$/, "$1");
   const ui = getUI(locale);
   const home = localePath(locale);
   const about = localePath(locale, "/about");

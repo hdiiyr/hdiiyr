@@ -2,8 +2,8 @@
 
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import gsap from "gsap";
 import { digits, indexLabel, type Locale } from "@/lib/i18n";
 import { getUI } from "@/content/ui";
@@ -26,27 +26,43 @@ export type Slide = {
   detail: { src: StaticImageData; alt: string; rotate: number };
 };
 
-type Props = { locale: Locale; slides: Slide[]; initial: number };
+type Props = { locale: Locale; slides: Slide[] };
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
 const themeVars = (t: Slide["theme"]) => ({ "--bg": t.bg, "--title": t.title, "--ink": t.ink });
 
-export default function ProjectShowcase({ locale, slides: slidesProp, initial: initialProp }: Props) {
+/** Server render always starts on the first project; `?p=` is applied in the browser. */
+const initial = 0;
+
+// The URL never changes underneath the gallery without a navigation, so nothing to subscribe to.
+const subscribeNone = () => () => {};
+const readRequested = () => new URLSearchParams(window.location.search).get("p");
+const isClient = () => true;
+const isServer = () => false;
+
+export default function ProjectShowcase({ locale, slides: slidesProp }: Props) {
   // The URL is kept in sync through the router (see below), which re-renders the page with
   // fresh props on every change; the gallery keeps its own first copy so nothing restarts.
   const [slides] = useState(slidesProp);
-  const [initial] = useState(initialProp);
   const ui = getUI(locale);
   const total = slides.length;
   const rtl = locale === "fa";
   const router = useRouter();
+  const pathname = usePathname();
 
-  const [active, setActive] = useState(initial);
+  // `?p=` from the address bar: null while hydrating (matches the server), then the real value.
+  const requested = useSyncExternalStore(subscribeNone, readRequested, () => null);
+  const hydrated = useSyncExternalStore(subscribeNone, isClient, isServer);
+  const start = Math.max(0, requested ? slides.findIndex((x) => x.slug === requested) : initial);
+  // null until the visitor moves; until then the gallery shows `start`.
+  const [chosen, setActive] = useState<number | null>(null);
+  const active = chosen ?? start;
   const [listOpen, setListOpen] = useState(false);
   const [glReady, setGlReady] = useState<boolean[]>(() => slides.map(() => false));
   // Covers within one step of anything shown so far load eagerly; the rest stay lazy.
-  const [near, setNear] = useState(() => new Set([initial - 1, initial, initial + 1]));
+  const [visited, setNear] = useState(() => new Set<number>());
+  const isNear = (i: number) => Math.abs(i - active) <= 1 || visited.has(i);
 
   const rootRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -179,15 +195,23 @@ export default function ProjectShowcase({ locale, slides: slidesProp, initial: i
     };
   }, [place, slides]);
 
-  /* ---------- page colours on mount (also after coming back from a case study) ---------- */
+  /* ---------- start position + page colours (also after coming back from a case study) ---------- */
   useLayoutEffect(() => {
     const root = document.documentElement;
-    const vars = themeVars(slides[initial].theme);
-    if (prefersReducedMotion()) gsap.set(root, vars);
+    const s = m.current;
+    if (start !== s.shown && s.index === s.shown) {
+      // Deep link: move the column and text state straight to the requested project.
+      s.p = s.index = s.shown = s.lastP = start;
+      s.gray = slides.map((_, i) => (i === start ? 0 : 1));
+    }
+    const vars = themeVars(slides[start].theme);
+    if (prefersReducedMotion() || start !== initial) gsap.set(root, vars);
     else gsap.to(root, { ...vars, duration: 0.5, ease: EASE.color, overwrite: "auto" });
+    // A deep link hides the gallery until it is on the right project (see layout.tsx).
+    if (hydrated) root.classList.remove("deep-link");
     const intro = window.setTimeout(() => rootRef.current?.classList.remove("is-intro"), 1600);
     return () => window.clearTimeout(intro);
-  }, [slides, initial]);
+  }, [slides, start, hydrated]);
 
   /* ---------- the transition between projects ---------- */
   const run = useCallback(
@@ -293,15 +317,14 @@ export default function ProjectShowcase({ locale, slides: slidesProp, initial: i
    */
   useEffect(() => {
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", slides[active].theme.bg);
-    const url = new URL(window.location.href);
-    if (active === 0) url.searchParams.delete("p");
-    else url.searchParams.set("p", slides[active].slug);
-    if (url.href === window.location.href) return;
+    const want = active === 0 ? null : slides[active].slug;
+    if (new URLSearchParams(window.location.search).get("p") === want) return;
+    // `pathname` has no base path, so this also works under /portfolio on GitHub Pages.
     const id = window.setTimeout(() => {
-      if (!m.current.leaving) router.replace(`${url.pathname}${url.search}`, { scroll: false });
+      if (!m.current.leaving) router.replace(want ? `${pathname}?p=${want}` : pathname, { scroll: false });
     }, 350);
     return () => window.clearTimeout(id);
-  }, [active, slides, router]);
+  }, [active, slides, router, pathname]);
 
   /* ---------- wheel (desktop only; ignores trackpad inertia) ---------- */
   useEffect(() => {
@@ -539,7 +562,7 @@ export default function ProjectShowcase({ locale, slides: slidesProp, initial: i
                   placeholder="blur"
                   draggable={false}
                   preload={i === initial}
-                  loading={i === initial ? undefined : near.has(i) ? "eager" : "lazy"}
+                  loading={i === initial ? undefined : isNear(i) ? "eager" : "lazy"}
                 />
               </Link>
             </li>
@@ -564,7 +587,7 @@ export default function ProjectShowcase({ locale, slides: slidesProp, initial: i
               src={s.detail.src}
               alt=""
               sizes="(min-width: 1024px) 16vw, 30vw"
-              loading={near.has(i) ? "eager" : "lazy"}
+              loading={isNear(i) ? "eager" : "lazy"}
             />
           </div>
         ))}

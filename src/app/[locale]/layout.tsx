@@ -48,6 +48,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
 
   return (
     <html lang={locale} dir={dirOf(locale)} className={fontVariables} data-locale={locale}>
+      <head>
+        {/* Deep links (?p=…) keep the gallery hidden until it has moved to that project. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(/[?&]p=/.test(location.search)&&/\\/(fa|en)\\/?$/.test(location.pathname))document.documentElement.classList.add("deep-link")`,
+          }}
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           {ui.skip}
