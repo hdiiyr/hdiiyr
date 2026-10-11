@@ -1,5 +1,5 @@
 # Builds the static export and publishes it to GitHub Pages
-# (https://abolfazlirani.github.io/portfolio/) on every push to main.
+# (https://<owner>.github.io/<repo>/) on every push to main.
 name: Deploy to GitHub Pages
 
 on:
@@ -26,10 +26,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Work out the Pages address
+        run: |
+          owner="${{ github.repository_owner }}"
+          owner="${owner,,}"
+          name="${{ github.event.repository.name }}"
+          if [ "$name" = "$owner.github.io" ]; then base=""; else base="/$name"; fi
+          echo "PAGES_BASE_PATH=$base" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_SITE_URL=https://$owner.github.io$base" >> "$GITHUB_ENV"
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_SITE_URL: https://abolfazlirani.github.io/portfolio
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

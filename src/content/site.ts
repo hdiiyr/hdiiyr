@@ -10,9 +10,9 @@ import type { Localized } from "@/lib/i18n";
 import type { ExperienceItem, Maybe, SocialLink } from "./types";
 
 export const site = {
-  name: { fa: "ابوالفضل ایرانی", en: "Abolfazl Irani" } as Localized,
+  name: { fa: "هادی ایمانی", en: "Hadi Imani" } as Localized,
   /** Short first name used in the About greeting. */
-  firstName: { fa: "ابوالفضل", en: "Abolfazl" } as Localized,
+  firstName: { fa: "هادی", en: "Hadi" } as Localized,
 
   role: null as Maybe<Localized>,
   location: null as Maybe<Localized>,

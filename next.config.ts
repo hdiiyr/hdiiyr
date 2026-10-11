@@ -2,11 +2,12 @@ import type { NextConfig } from "next";
 
 /**
  * GITHUB_PAGES=true builds a static export for GitHub Pages, served from
- * https://<user>.github.io/portfolio/. Local `next dev` / `next start` keep the server
- * features (image optimisation, redirects) and no base path.
+ * https://<owner>.github.io/<repo>/ — PAGES_BASE_PATH is "/<repo>" (empty for a
+ * <owner>.github.io repo); the workflow sets both. Local `next dev` / `next start` keep the
+ * server features (image optimisation, redirects) and no base path.
  */
 const pages = process.env.GITHUB_PAGES === "true";
-const basePath = pages ? "/portfolio" : "";
+const basePath = pages ? (process.env.PAGES_BASE_PATH ?? "") : "";
 
 const nextConfig: NextConfig = {
   ...(pages ? { output: "export" as const, basePath, trailingSlash: true } : {}),

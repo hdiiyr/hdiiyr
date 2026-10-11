@@ -319,7 +319,7 @@ export default function ProjectShowcase({ locale, slides: slidesProp }: Props) {
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", slides[active].theme.bg);
     const want = active === 0 ? null : slides[active].slug;
     if (new URLSearchParams(window.location.search).get("p") === want) return;
-    // `pathname` has no base path, so this also works under /portfolio on GitHub Pages.
+    // `pathname` has no base path, so this also works under a GitHub Pages sub-path.
     const id = window.setTimeout(() => {
       if (!m.current.leaving) router.replace(want ? `${pathname}?p=${want}` : pathname, { scroll: false });
     }, 350);

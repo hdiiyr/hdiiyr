@@ -1,4 +1,4 @@
-# Abolfazl Irani — Portfolio & Résumé
+# Hadi Imani — Portfolio & Résumé
 
 A bilingual (Persian default, English) portfolio site with a full-screen project gallery,
 case studies and a printable résumé. Layout, typography scale and motion follow the
@@ -20,6 +20,18 @@ Open http://localhost:3100 (redirects to `/fa`). English lives at `/en`.
 ```bash
 npm run build && npm start   # production build
 npm run lint
+```
+
+## Deploy (GitHub Pages)
+
+`.github/workflows/deploy-pages.yml` builds a static export and publishes it on every push to
+`main` (Pages must be set to "GitHub Actions"). The base path comes from the repository name, so
+the site lives at `https://<owner>.github.io/<repo>/` — currently https://hdiiyr.github.io/hdiiyr/.
+
+To try the export locally:
+
+```bash
+GITHUB_PAGES=true PAGES_BASE_PATH=/hdiiyr npm run build   # output in out/
 ```
 
 ## Routes
